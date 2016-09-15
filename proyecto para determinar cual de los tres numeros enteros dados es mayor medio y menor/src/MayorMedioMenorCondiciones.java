@@ -94,6 +94,7 @@ public class MayorMedioMenorCondiciones {
         texto += "Entero Mayor: " + mayor + "\n";
         texto += "Entero Medio: " + medio + "\n";
         texto += "Entero Menor: " + menor;
+         texto += "Test github";
         
         JOptionPane.showMessageDialog( null, texto );
     }
