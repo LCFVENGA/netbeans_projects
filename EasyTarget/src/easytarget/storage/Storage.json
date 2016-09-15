@@ -1,0 +1,40 @@
+
+{
+    "db": "EasyTarget",
+    "schemas": {
+        "player":[
+            {
+                "id": 1,
+                "user": "lcfvenga",
+                "name": "Juan Pablo",
+                "score": "450",
+                "game": [
+                    {
+                        "id": "1",
+                        "score":"300"
+                    },
+                    {
+                        "id": "2",
+                        "score": "600"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "user": "juandav",
+                "name": "Juan David",
+                "score": "600",
+                "game": [
+                    {
+                        "id": "1",
+                        "score": "600"
+                    },
+                    {
+                        "id": "2",
+                        "score": "600"
+                    }
+                ]
+            }
+        ]
+    }
+}
