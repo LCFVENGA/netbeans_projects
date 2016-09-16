@@ -42,6 +42,7 @@ public class ConversionesCondicion {
      * @param args linea de comandos
      */
     public static void main(String[] args) {
+
        DecimalFormat decimal = new DecimalFormat("#.###");
        double numero, resultado;
        String pregunta;
