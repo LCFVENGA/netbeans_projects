@@ -63,7 +63,7 @@ public class ProjectFinal1 {
         
         menu = "INGRESE LA OPCION QUE DESEAS EJECUTAR \n\n";
         menu += "Marque  1.  Para Jugar \n";
-        menu += "Marque  2.  Para ver Puntajes \n";
+        menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
         
         do{
@@ -89,6 +89,7 @@ public class ProjectFinal1 {
      */
     public static void main(String[] args) {
         
+        procesarMenu();
     }
 
 }
