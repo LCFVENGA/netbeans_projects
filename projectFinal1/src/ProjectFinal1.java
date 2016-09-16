@@ -38,6 +38,19 @@ public class ProjectFinal1 {
     {
         
     }
+    public static void procesarPuntaje()
+    {
+        String puntajes;
+        int puntaje1, puntaje2, puntaje3, puntaje4, puntaje5;
+        
+        puntaje1 = 
+        
+        puntajes = "Puntaje N°1: " + puntaje1 + "\n";
+        puntajes += "Puntaje N°2: " + puntaje2 + "\n";
+        puntajes += "Puntaje N°3: " + puntaje3 + "\n";
+        puntajes += "Puntaje N°4: " + puntaje4 + "\n";
+        puntajes += "Puntaje N°5: " + puntaje5;
+    }
     public static void imprimir( String texto )
     {
         JOptionPane.showMessageDialog( null, texto );
