@@ -1,4 +1,4 @@
-
+import javax.swing.JOptionPane;
 /**
  * Este juego es un programa donde el jugador prueba su suerte al intentar 
  * obtener el mayor puntaje posible haciendo lanzamientos de flechas hacia el 
@@ -29,6 +29,37 @@ public class ProjectFinal1 {
     {
         return tiro1 + tiro2 + tiro3 + tiro4 + tiro5 + tiro6 + tiro7 + tiro8
                 + tiro9 + tiro10;
+    }
+    public static int leerEntero( String pregunta )
+    {
+        return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
+    }
+    public static void imprimir( String texto )
+    {
+        JOptionPane.showMessageDialog( null, texto );
+    }
+    public static void procesarMenu(){
+        String menu;
+        int opcion;
+        
+        menu = "INGRESE LA OPCION QUE DESEAS EJECUTAR \n\n";
+        menu += "Marque  1.  Para Jugar \n";
+        menu += "Marque  2.  Para ver Puntajes \n";
+        menu += "Marque  3.  para Salir";
+        
+        do{
+            opcion = leerEntero( menu );
+            
+            switch(opcion){
+                case 1: procesarJuego();
+                        break;
+                
+                case 2: ProcesarPuntaje();
+                        break;
+                
+                case 3: break;
+            }
+        }
     }
 
     /**
