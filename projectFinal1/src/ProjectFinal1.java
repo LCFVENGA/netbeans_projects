@@ -34,6 +34,10 @@ public class ProjectFinal1 {
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
     }
+    public static int procesarJuego()
+    {
+        
+    }
     public static void imprimir( String texto )
     {
         JOptionPane.showMessageDialog( null, texto );
@@ -58,8 +62,11 @@ public class ProjectFinal1 {
                         break;
                 
                 case 3: break;
+                
+                default: imprimir( "Opcion no Valida.");
+                         break;
             }
-        }
+        }while (opcion != 3);
     }
 
     /**
