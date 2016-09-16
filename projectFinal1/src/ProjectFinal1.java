@@ -34,24 +34,25 @@ public class ProjectFinal1 {
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
     }
+    public static int numeroAleatorio(int minimo, int maximo)
+    {
+        int numero = (int) Math.floor(Math.random() * ( minimo - ( maximo + 1 ))
+                + ( maximo + 1));
+        return numero; 
+    }
     public static int procesarJuego()
     {
-        
+        int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
+                tiro10;
+        tiro1 = 0; tiro2 = 1; tiro3 = 2; tiro4 = 3;
     }
     public static void procesarPuntaje()
     {
-        String puntajes;
-        int puntaje1, puntaje2, puntaje3, puntaje4, puntaje5;
-        
-        
-        
-        puntajes = "Puntaje N°1: " + puntaje1 + "\n";
-        puntajes += "Puntaje N°2: " + puntaje2 + "\n";
-        puntajes += "Puntaje N°3: " + puntaje3 + "\n";
-        puntajes += "Puntaje N°4: " + puntaje4 + "\n";
-        puntajes += "Puntaje N°5: " + puntaje5;
-        
-        imprimir(puntajes);
+     String texto;
+     int tiro1,tiro2,tiro3,tiro4,tiro5,tiro6,tiro7,tiro8,tiro9,tiro10,puntaje;
+     puntaje = calcularPuntaje(tiro1,tiro2,tiro3,tiro4,tiro5,tiro6,tiro7,tiro8,
+             tiro9,tiro10);
+     
     }
     public static void imprimir( String texto )
     {

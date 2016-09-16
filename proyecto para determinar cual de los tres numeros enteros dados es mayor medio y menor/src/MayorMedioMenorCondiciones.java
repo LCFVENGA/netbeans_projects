@@ -22,96 +22,57 @@ public class MayorMedioMenorCondiciones {
      * @param a es el entero "N°1"
      * @param b es el entero "N°2"
      * @param c es el entero "N°3"
-     * @return es el Numero mayor de los tres
      */
-    public static int calcularMayor(int a, int b, int c)
+    public static void calcularMayorMenorMedio(int a, int b, int c)
     {
         if( a > b ){
-            if ( a > c){
-                return a;
+            if( a > c ){
+                if( c < b ){
+                   imprimir("El Mayor es: " + a + "\nEl Medio es: " + b + 
+                           "\nEl Menor es: " + c);
+                }
+                else{
+                    imprimir("El Mayor es: " + a + "\nEl Medio es: " + c + 
+                           "\nEl Menor es: " + b);
+                }
+            }
+            else if ( c > b){
+                imprimir("El Mayor es: " + c + "\nEl Medio es: " + a + 
+                           "\nEl Menor es: " + b);
+            }
+        }
+        else if( b > c ){
+            if( a > c ){
+            imprimir("El Mayor es: " + b + "\nEl Medio es: " + a + 
+                           "\nEl Menor es: " + c);
             }
             else{
-                return c;
+                imprimir("El Mayor es: " + b + "\nEl Medio es: " + c + 
+                           "\nEl Menor es: " + a);
             }
         }
         else{
-            if( b > c ){
-                return b;
-            }
-            else{
-                return c;
-            }
+            imprimir("El Mayor es: " + c + "\nEl Medio es: " + b + 
+                           "\nEl Menor es: " + a);
         }
     }
-    public static int calcularMedio (int a, int b, int c)
-      {
-        if( a > b ){
-            if ( a < c){
-                return a;
-            }
-            else{
-                return c;
-            }
-        }
-        else{
-            if( b < c ){
-                return b;
-            }
-            else{
-                return c;
-            }
-        }
-    }
-    public static int calcularMenor (int a, int b, int c)
-       {
-        if( a < b ){
-            if ( a < c){
-                return a;
-            }
-            else{
-                return c;
-            }
-        }
-        else{
-            if( b < c ){
-                return b;
-            }
-            else{
-                return c;
-            }
-        }
-    }
-    public static void imprimir ( int a, int b, int c, int mayor, int medio, 
-                                  int menor)
-    {
-       
-        String texto;
-        
-        texto = "Entero "
-                + "N°1: " + a + "\n";
-        texto += "Entero N°2: " + b + "\n";
-        texto += "Entero N°3: " + c + "\n\n";
-        texto += "Entero Mayor: " + mayor + "\n";
-        texto += "Entero Medio: " + medio + "\n";
-        texto += "Entero Menor: " + menor;
-        
+    public static void imprimir ( String texto )
+    {   
         JOptionPane.showMessageDialog( null, texto );
     }
     /**
      * @param args linea de comando
      */
     public static void main(String[] args) {
-        int a, b, c, mayor, medio, menor;
+        int a, b, c;
+        
         JOptionPane.showMessageDialog(null, "Comparando los enteros.");
         
         a = leerEntero("Entero N°1: ");
         b = leerEntero("Entero N°2: ");
         c = leerEntero("Entero N°3: ");
-        mayor = calcularMayor(a, b, c);
-        medio = calcularMedio(a, b, c);
-        menor = calcularMenor(a, b, c);
         
-        imprimir(a, b, c, mayor, medio, menor);
+        calcularMayorMenorMedio( a ,b, c );
     }
     
 }
