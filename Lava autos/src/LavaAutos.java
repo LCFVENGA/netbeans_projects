@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
  * Proyecto para identificar el precio del lavado segun el tipo de auto, 
  * modelo y el tipo de vehiculo e imprimir el precio. Nota si el carro tiene mas 
  * de 8 años o mas, el costo se incrementa un 20% 
- * _______________________________________________________
+ * ________________________________________________________
  *  |      Tipo de vehiculo      |     Valor a pagar      |
  *  |____________________________|________________________|
  *  |            |  Pequeño      |       $ 16.000         |
@@ -40,7 +40,7 @@ public class LavaAutos {
                     valor = 16000 + (16000 * 0.2);
                 }
                 else{
-                    valor = 0;
+                    valor = 20000;
                 }   break;
             case 2:
                 a = leerEntero("Cuantos años tiene su Automovil actualmente");
@@ -66,7 +66,7 @@ public class LavaAutos {
     }
     public static void calcularResultadoC(int opcion)
     {
-        int a; double valor = 0;
+        int a; double valor = 22000;
         switch(opcion){
             case 1:
                 a = leerEntero("Cuantos años tiene su Campero actualmente.");
@@ -91,7 +91,7 @@ public class LavaAutos {
     }
     public static void calcularResultadoM(int opcion)
     {
-        int a; double valor = 0;
+        int a; double valor = 30000;
         
         switch(opcion){
             case 1:
@@ -129,15 +129,18 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoA(opcion);
+                        procesarMenu();
                         break;
                 case 2: calcularResultadoA(opcion);
+                        procesarMenu();
                         break;
                 case 3: calcularResultadoA(opcion);
+                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 1 || opcion != 2 || opcion != 3 );
+        }while( opcion != 4 );
     }
     public static void procesarSubMenC()
     {
@@ -153,13 +156,15 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoC(opcion);
+                        procesarMenu();
                         break;
                 case 2: calcularResultadoC(opcion);
+                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 1 || opcion != 2 );
+        }while( opcion != 4 );
     }
     public static void procesarSubMenM()
     {
@@ -175,13 +180,15 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoM(opcion);
+                        procesarMenu();
                         break;
                 case 2: calcularResultadoM(opcion);
+                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 1 || opcion != 2 );
+        }while( opcion != 4 );
     }
     public static void procesarMenu()
     {
@@ -190,7 +197,7 @@ public class LavaAutos {
         
         menu = "LAVAAUTOS CARABALYUS S.A \n\n";
         menu += "Marque 1. Si es Automovil.\n";
-        menu += "Marque 3. Si es Campero.\n";
+        menu += "Marque 2. Si es Campero.\n";
         menu += "Marque 3. Si es una Camioneta.\n";
         menu += "Marque 4. Si desea Salir.";
         
@@ -204,7 +211,9 @@ public class LavaAutos {
                         break;
                 case 3: procesarSubMenM();
                         break;
-                case 4: break;
+                case 4: imprimir("Muchas gracias por escojernos.");
+                        imprimir("Vuelva pronto.");
+                        break;
                 
                 default: imprimir("Opcion invalida.");
                          break;
