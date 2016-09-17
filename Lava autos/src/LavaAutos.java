@@ -18,19 +18,35 @@ import javax.swing.JOptionPane;
  *  |____________|_______________|________________________|
  * 
  * @author Carabali Rivera Juan Pablo, Giraldo Patiño Calros Andres,
+ *         Valencia Romero Kevin Edilson.
  *         
  */
 public class LavaAutos {
 
+    /**
+     * Metodo para imprimir un texto
+     * @param texto es el texto que queremos imprimir 
+     */
     public static void imprimir( String texto )
     {
         JOptionPane.showMessageDialog( null, texto );
     }
+    /**
+     * Metodo para leer un entero
+     * @param pregunta es la pregunta que se le hace al usuario
+     * @return es el entero que el usuario ingreso
+     */
     public static int leerEntero( String pregunta )
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
     }
+    /**
+     * Metodo para calcular el resultado a pagar segun la opcion que el usuario
+     * halla escogido.
+     * @param opcion es la opcion que escoje el usuario
+     */
     public static void calcularResultadoA(int opcion)
+    // este es el codigo a ejecutar si el usuario escoje la opcion 1 
     {
         int a ; double valor = 16000;
         switch (opcion) {
@@ -64,7 +80,13 @@ public class LavaAutos {
       imprimir("El valor a pagar es: $"+valor);
       
     }
+    /**
+     * Metodo para calcular el resultado a pagar segun la opcion que el usuario
+     * halla escogido
+     * @param opcion es la opcion que escoje el usuario
+     */
     public static void calcularResultadoC(int opcion)
+    // este es el codigo a ejecutar si el usuario escoje la opcion 2
     {
         int a; double valor = 22000;
         switch(opcion){
@@ -89,7 +111,13 @@ public class LavaAutos {
         }
         imprimir("El valor a pagar es: $"+valor);
     }
+    /**
+     * Metodo para calcular el resultado a pagar segun la opcion que el usuario
+     * halla escogido
+     * @param opcion es la opcion que escoje el usuario
+     */
     public static void calcularResultadoM(int opcion)
+    // este es el codigo a ejecutar si el usuario escoje la opcion 3.
     {
         int a; double valor = 30000;
         
@@ -114,7 +142,11 @@ public class LavaAutos {
         }
         imprimir("El valor a pagar es: $"+valor);
     }
+    /**
+     * Metodo para mostrar un submenu.
+     */
     public static void procesarSubMenA()
+    // este el el submenu de la 1 opcion.
     {
         String submenu;
         int opcion;
@@ -142,7 +174,11 @@ public class LavaAutos {
             }
         }while( opcion != 4 );
     }
+    /**
+     * Metodo para sacar un submenu
+     */
     public static void procesarSubMenC()
+    // este es el submenu de la 2da opcion
     {
         String submenu;
         int opcion;
@@ -166,7 +202,11 @@ public class LavaAutos {
             }
         }while( opcion != 4 );
     }
+    /**
+     * Metodo para mostrar un submenu
+     */
     public static void procesarSubMenM()
+    // este es el submenu de la 3ra opcion.
     {
         String submenu;
         int opcion;
@@ -190,7 +230,11 @@ public class LavaAutos {
             }
         }while( opcion != 4 );
     }
+    /**
+     * Metodo para mostrar el menu principal
+     */
     public static void procesarMenu()
+            // este es el menu principal
     {
         String menu;
         int opcion;
@@ -221,7 +265,7 @@ public class LavaAutos {
         }while( opcion != 4 );
     }
     /**
-     * @param args the command line arguments
+     * @param args linea de comandos
      */
     public static void main(String[] args) {
         procesarMenu();
