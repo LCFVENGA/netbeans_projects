@@ -93,15 +93,13 @@ public class VerdurasValor {
         opcion = leerEntero( submenu );
          switch(opcion){
             case 1: resolverT(opcion);
-                    procesarMenu();
                     break;
             case 2: resolverT(opcion);
-                    procesarMenu();
                     break;
             default: imprimir("Opcion invalida");
                      break;
          }
-       }while(opcion != 4);
+       }while(opcion != 1 && opcion != 2);
     }
     public static void procesarSubMenP()
     {
@@ -112,22 +110,22 @@ public class VerdurasValor {
         submenu += "Marque 1. Criolla.\n";
         submenu += "Marque 2. Pastusa.\n";
         submenu += "Marque 3. Salentuna.";
-       do{ 
+        
+       do{
+           
         opcion = leerEntero( submenu );
-         switch(opcion){
+        
+         switch ( opcion ){
             case 1: resolverP(opcion);
-                    procesarMenu();
                     break;
             case 2: resolverP(opcion);
-                    procesarMenu();
                     break;
             case 3: resolverP(opcion);
-                    procesarMenu();
                     break;
             default: imprimir("Opcion invalida");
                      break;
          }
-       }while(opcion != 4);
+       }while(opcion != 1 && opcion != 2 && opcion != 3 );
     }
     public static void procesarSubMenC()
     {
@@ -137,19 +135,20 @@ public class VerdurasValor {
         submenu = "Tipo\n\n";
         submenu += "Marque 1. Larga.\n";
         submenu += "Marque 2. De huevo.";
+        
        do{ 
+           
         opcion = leerEntero( submenu );
+        
          switch(opcion){
             case 1: resolverC(opcion);
-                    procesarMenu();
                     break;
             case 2: resolverC(opcion);
-                    procesarMenu();
                     break;
             default: imprimir("Opcion invalida");
                      break;
          }
-       }while(opcion != 4);
+       }while(opcion != 1 && opcion !=2  );
     }
     public static void procesarMenu()
     {
@@ -163,7 +162,9 @@ public class VerdurasValor {
         menu += "Marque 4. Salir.";
         
         do{
+            
             opcion = leerEntero( menu );
+            
             switch(opcion){
                 case 1: procesarSubMenT();
                         break;
@@ -171,7 +172,9 @@ public class VerdurasValor {
                         break;
                 case 3: procesarSubMenC();
                         break;
-                case 4: break;
+                case 4: imprimir("Muchas gracias por escojernos.");
+                        imprimir("Vuelva pronto.");
+                        break;
                 
                 default: imprimir("Opcion invalida.");
                          break;
