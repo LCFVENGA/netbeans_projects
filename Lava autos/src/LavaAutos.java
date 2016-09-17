@@ -35,15 +35,15 @@ public class LavaAutos {
         int a ; double valor = 16000;
         switch (opcion) {
             case 1:
-                a = leerEntero("cuantos años tiene su automovil actualmente");
+                a = leerEntero("Cuantos años tiene su Automovil actualmente");
                 if( a >= 8 ){
                     valor = 16000 + (16000 * 0.2);
                 }
                 else{
-                    valor = 16000;
+                    valor = 0;
                 }   break;
             case 2:
-                a = leerEntero("cuantos años tiene su automovil actualmente");
+                a = leerEntero("Cuantos años tiene su Automovil actualmente");
                 if( a >= 8 ){
                     valor = 20000 + (20000 * 0.2);
                 }
@@ -51,7 +51,7 @@ public class LavaAutos {
                     valor = 20000;
                 }   break;
             case 3:
-                a = leerEntero("cuantos años tiene su automovil actualmente");
+                a = leerEntero("Cuantos años tiene su Automovil actualmente");
                 if( a >= 8){
                     valor = 27000 + (27000 * 0.2);
                 }
@@ -61,13 +61,63 @@ public class LavaAutos {
             default:
                 break;
         }
-      imprimir("el valor a pagar es:"+valor);
+      imprimir("El valor a pagar es: $"+valor);
       
+    }
+    public static void calcularResultadoC(int opcion)
+    {
+        int a; double valor = 0;
+        switch(opcion){
+            case 1:
+                a = leerEntero("Cuantos años tiene su Campero actualmente.");
+                if( a >= 8 ){
+                    valor = 22000 + (22000 * 0.2);
+                }
+                else{
+                    valor = 22000;
+                }   break;
+            case 2:
+                a = leerEntero("Cuantos años tiene su Campero actualmente.");
+                if( a >= 8 ){
+                    valor = 32000 + (32000 * 0.2);
+                }
+                else{
+                    valor = 32000;
+                }   break;
+            default: imprimir("Opcion invalida.");
+                     break;
+        }
+        imprimir("El valor a pagar es: $"+valor);
+    }
+    public static void calcularResultadoM(int opcion)
+    {
+        int a; double valor = 0;
+        
+        switch(opcion){
+            case 1:
+                a = leerEntero("Cuantos años tiene su Camioneta actualmente.");
+                if( a >= 8 ){
+                    valor = 30000 + ( 30000 * 0.2);
+                }
+                else{
+                    valor = 30000;
+                }   break;
+            case 2: 
+                a = leerEntero("Cuantos años tiene su Camioneta actulamente.");
+                if( a >= 8 ){
+                    valor = 35000 + ( 35000 * 0.2 );
+                }
+                else{
+                    valor = 35000;
+                }   break;
+            default: imprimir("Opcion invalida.");
+        }
+        imprimir("El valor a pagar es: $"+valor);
     }
     public static void procesarSubMenA()
     {
         String submenu;
-        int opcion,a;
+        int opcion;
         
         submenu = "TIPO DE AUTOMOVIL. \n\n";
         submenu += "Marque 1. Si es Pequeño.\n";
@@ -88,6 +138,50 @@ public class LavaAutos {
                          break;
             }
         }while( opcion != 1 || opcion != 2 || opcion != 3 );
+    }
+    public static void procesarSubMenC()
+    {
+        String submenu;
+        int opcion;
+        
+        submenu = "TIPO DE CAMPERO. \n\n";
+        submenu += "Marque 1. Si es Sencillo.\n";
+        submenu += "Marque 2. Si es De Lujo.\n";
+        
+        do{
+            opcion = leerEntero(submenu);
+   
+            switch(opcion){
+                case 1: calcularResultadoC(opcion);
+                        break;
+                case 2: calcularResultadoC(opcion);
+                        break;
+                default: imprimir("Opcion invalida.");
+                         break;
+            }
+        }while( opcion != 1 || opcion != 2 );
+    }
+    public static void procesarSubMenM()
+    {
+        String submenu;
+        int opcion;
+        
+        submenu = "TIPO DE CAMPERO. \n\n";
+        submenu += "Marque 1. Si es Sencillo.\n";
+        submenu += "Marque 2. Si es Doble Cabina.\n";
+        
+        do{
+            opcion = leerEntero(submenu);
+   
+            switch(opcion){
+                case 1: calcularResultadoM(opcion);
+                        break;
+                case 2: calcularResultadoM(opcion);
+                        break;
+                default: imprimir("Opcion invalida.");
+                         break;
+            }
+        }while( opcion != 1 || opcion != 2 );
     }
     public static void procesarMenu()
     {
