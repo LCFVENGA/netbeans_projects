@@ -38,13 +38,24 @@ public class ProjectFinal1 {
     {
         int numero = (int) Math.floor(Math.random() * ( minimo - ( maximo + 1 ))
                 + ( maximo + 1));
-        return numero; 
+        return numero;
+        
     }
     public static int procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
                 tiro10;
-        tiro1 = 0; tiro2 = 1; tiro3 = 2; tiro4 = 3;
+        tiro1 = numeroAleatorio(0,11);      
+        tiro2 = numeroAleatorio(0,11);
+        tiro3 = numeroAleatorio(0,11);
+        tiro4 = numeroAleatorio(0,11);
+        tiro5 = numeroAleatorio(0,11);
+        tiro6 = numeroAleatorio(0,11);
+        tiro7 = numeroAleatorio(0,11);
+        tiro8 = numeroAleatorio(0,11);
+        tiro9 = numeroAleatorio(0,11);
+        tiro10 = numeroAleatorio(0,11);
+        
     }
     public static void procesarPuntaje()
     {
