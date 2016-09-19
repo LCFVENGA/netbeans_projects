@@ -161,18 +161,15 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoA(opcion);
-                        procesarMenu();
                         break;
                 case 2: calcularResultadoA(opcion);
-                        procesarMenu();
                         break;
                 case 3: calcularResultadoA(opcion);
-                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 4 );
+        }while( opcion != 3 && opcion != 2 && opcion != 1 );
     }
     /**
      * Metodo para sacar un submenu
@@ -192,15 +189,13 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoC(opcion);
-                        procesarMenu();
                         break;
                 case 2: calcularResultadoC(opcion);
-                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 4 );
+        }while( opcion != 2 && opcion != 1 );
     }
     /**
      * Metodo para mostrar un submenu
@@ -220,15 +215,13 @@ public class LavaAutos {
    
             switch(opcion){
                 case 1: calcularResultadoM(opcion);
-                        procesarMenu();
                         break;
                 case 2: calcularResultadoM(opcion);
-                        procesarMenu();
                         break;
                 default: imprimir("Opcion invalida.");
                          break;
             }
-        }while( opcion != 4 );
+        }while( opcion != 2 && opcion != 1 );
     }
     /**
      * Metodo para mostrar el menu principal

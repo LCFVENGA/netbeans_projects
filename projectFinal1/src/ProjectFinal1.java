@@ -50,7 +50,19 @@ public class ProjectFinal1 {
     public static int procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
-                tiro10;
+                tiro10,azul,v,c,f,g,h,j,k,l,o,p,u;
+        azul = 0;
+        v=1;
+        c=2;
+        f=3;
+        g=4;
+        h=5;
+        j=6;
+        k=7;
+        l=8;
+        o=9;
+        p=10;
+        u=11;     
         tiro1 = numeroAleatorio(0,11);      
         tiro2 = numeroAleatorio(0,11);
         tiro3 = numeroAleatorio(0,11);
@@ -83,7 +95,7 @@ public class ProjectFinal1 {
         menu += "Marque  1.  Para Jugar \n";
         menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
-        imprimirImagen("","/home/jp/"
+        imprimirImagen("Prueba tu suerte lanzando flechas hacia\n el blanco","/home/jp/"
                 + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
         do{
             opcion = leerEntero( menu );

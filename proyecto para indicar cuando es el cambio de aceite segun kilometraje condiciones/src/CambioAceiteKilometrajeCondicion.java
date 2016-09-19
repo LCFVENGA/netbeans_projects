@@ -33,22 +33,23 @@ public class CambioAceiteKilometrajeCondicion {
      * @param args linea de comandos
      */
     public static void main(String[] args) {
-        int km, faltante;
+        int km, kmu, kmt, faltante;
         imprimir("Cambia el aceite de tu coche segun el kilometraje");
         imprimir("Solo numeros enteros, asi que aproxime.");
         
-        km = leerEntero("Kilometraje: ");
+        kmu = leerEntero("kilometros ultima vez que hizo cambio: ");
+        km = leerEntero("Kilometraje Actual del auto: ");
+        kmt = km - kmu;
         faltante = 4500 - km; 
         
-        if ( km <= 6000 && km >=4500  ){
+        if ( kmt <= 6000 && kmt >=4500  ){
             imprimir("Es momento oprtuno para el cambio del aceite");
         }
-        if ( km > 6000 ){
+        if ( kmt > 6000 ){
             imprimir("¡¡URGENTE!!...");
             imprimir("Hay que cambiar el aceite");
-            return ;
         }
-        if( km < 4500 ){
+        if( kmt < 4500 ){
             imprimir("Le faltan " + faltante + " km, para el cambio del aceite.");
         }
     }
