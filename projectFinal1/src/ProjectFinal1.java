@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  * Este juego es un programa donde el jugador prueba su suerte al intentar 
@@ -33,6 +34,11 @@ public class ProjectFinal1 {
     public static int leerEntero( String pregunta )
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
+    }
+    public static void imprimirImagen(String texto, String imagen)
+    {
+        JOptionPane.showMessageDialog(null,texto , "mensaje", 
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon( imagen ));
     }
     public static int numeroAleatorio(int minimo, int maximo)
     {

@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
+import javax.swing.*;
 /**
  * progrma para calcular el amuento de salario dado la categoria y sueldo del 
  * empleado, de acuerdo a la tabla:
@@ -55,7 +56,7 @@ public class SueldoEmpleado {
         
         opcion = leerEntero("De que categoria es el empleado\nCategoria 1. "
                 + "presione el 1.\nCategoria 2. presione el 2.\nCategoria 3. "
-                + "presione le 3.\nCategoria 4. presione el 4.");
+                + "presione el 3.\nCategoria 4. presione el 4.");
         
         switch(opcion){
             case 1: aumento = sueldo * 0.12;
@@ -93,6 +94,7 @@ public class SueldoEmpleado {
         int sueldo;
         sueldo = leerEntero("Sueldo.");
         operarCategoria(sueldo);
+        JOptionPane.showMessageDialog(null, "Blah blah blah", "mensaje", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("/home/jp/NetBeansProjects/SueldoEmpleado/src/1.jpg"));
     }
     
 }
