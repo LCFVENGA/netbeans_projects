@@ -83,7 +83,8 @@ public class ProjectFinal1 {
         menu += "Marque  1.  Para Jugar \n";
         menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
-        
+        imprimirImagen("","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
         do{
             opcion = leerEntero( menu );
             

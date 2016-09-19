@@ -93,8 +93,7 @@ public class SueldoEmpleado {
     public static void main(String[] args) {
         int sueldo;
         sueldo = leerEntero("Sueldo.");
-        operarCategoria(sueldo);
-        JOptionPane.showMessageDialog(null, "Blah blah blah", "mensaje", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("/home/jp/NetBeansProjects/SueldoEmpleado/src/1.jpg"));
-    }
-    
+        operarCategoria(sueldo);     
+   }
+   
 }
