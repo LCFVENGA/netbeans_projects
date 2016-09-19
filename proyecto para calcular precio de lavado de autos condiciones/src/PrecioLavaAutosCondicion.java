@@ -45,7 +45,7 @@ public class PrecioLavaAutosCondicion {
      */
     public static void main(String[] args) {
      int pregunta1, pregunta2, pregunta3, valor;
-     imprimir("Marque 1. atriculo 1\nMarque 2. articulo 2");
+
      imprimir("Lava Autos Carabalyus S.A");
      imprimir("A la hora de escojer porfavor solo presiona el numero "
              + "correspondiente");

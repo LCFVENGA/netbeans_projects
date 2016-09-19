@@ -35,9 +35,9 @@ public class ProjectFinal1 {
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
     }
-    public static void imprimirImagen(String texto, String imagen)
+    public static void imprimirImagen(String texto, String tipo, String imagen)
     {
-        JOptionPane.showMessageDialog(null,texto , "mensaje", 
+        JOptionPane.showMessageDialog(null,texto , tipo , 
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon( imagen ));
     }
     public static int numeroAleatorio(int minimo, int maximo)
@@ -47,7 +47,8 @@ public class ProjectFinal1 {
         return numero;
         
     }
-    public static int procesarJuego()
+    public static void procesarTiro(String tipo)
+    public static void procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
                 tiro10,azul,v,c,f,g,h,j,k,l,o,p,u;
@@ -63,16 +64,88 @@ public class ProjectFinal1 {
         o=9;
         p=10;
         u=11;     
-        tiro1 = numeroAleatorio(0,11);      
-        tiro2 = numeroAleatorio(0,11);
-        tiro3 = numeroAleatorio(0,11);
-        tiro4 = numeroAleatorio(0,11);
-        tiro5 = numeroAleatorio(0,11);
-        tiro6 = numeroAleatorio(0,11);
-        tiro7 = numeroAleatorio(0,11);
-        tiro8 = numeroAleatorio(0,11);
-        tiro9 = numeroAleatorio(0,11);
-        tiro10 = numeroAleatorio(0,11);
+        tiro1 = numeroAleatorio(0,10);
+        switch(tiro1){
+            case 0: imprimir("hola");
+                    break;
+            case 1: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            
+            case 2: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 3: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 4: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 5: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 6: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 7: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 8: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 9: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            default: imprimirImagen("No Mijo fallastes.","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+        }
+    
+        tiro2 = numeroAleatorio(0,10);
+          switch(tiro2){
+            case 0: imprimir("hola");
+                    break;
+            case 1: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            
+            case 2: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 3: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 4: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 5: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 6: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 7: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 8: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 9: imprimirImagen("o","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            default: imprimirImagen("No Mijo fallastes.","Tiro N2","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+        }
+        tiro3 = numeroAleatorio(0,10);
+        tiro4 = numeroAleatorio(0,10);
+        tiro5 = numeroAleatorio(0,10);
+        tiro6 = numeroAleatorio(0,10);
+        tiro7 = numeroAleatorio(0,10);
+        tiro8 = numeroAleatorio(0,10);
+        tiro9 = numeroAleatorio(0,10);
+        tiro10 = numeroAleatorio(0,10);
+       
         
     }
     public static void procesarPuntaje()
@@ -95,8 +168,8 @@ public class ProjectFinal1 {
         menu += "Marque  1.  Para Jugar \n";
         menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
-        imprimirImagen("Prueba tu suerte lanzando flechas hacia\n el blanco","/home/jp/"
-                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+        imprimirImagen("Prueba tu suerte lanzando flechas hacia\n el blanco",
+                "Inicio","/home/jp/"+ "NetBeansProjects/SueldoEmpleado/src/1.jpg");
         do{
             opcion = leerEntero( menu );
             
