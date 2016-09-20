@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *  |____________|_______________|________________________|
  * 
  * @author Carabali Rivera Juan Pablo, Giraldo Patiño Calros Andres,
- *         Valencia Romero Kevin Edilson.
+ *         Valencia Romero Kevin Edilson, Reyes Cuero Walter Andres.
  *         
  */
 public class LavaAutos {

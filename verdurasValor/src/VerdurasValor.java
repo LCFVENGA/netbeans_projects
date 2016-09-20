@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *  |_____________|_________________|_______________________|
  *
  * @author Carabali Rivera Juan Pablo, Giraldo Patiño Carlos Andres,
- *         Valencia Romero Kevin Edilson.
+ *         Valencia Romero Kevin Edilson, Reyes Cuero Walter Andres.
  */
 public class VerdurasValor {
 
