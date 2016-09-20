@@ -47,7 +47,45 @@ public class ProjectFinal1 {
         return numero;
         
     }
-    public static void procesarTiro(String tipo)
+    public static void procesarTiro(String tiro)
+    {
+        
+          switch(){
+            case 0: imprimir("hola");
+                    break;
+            case 1: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            
+            case 2: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 3: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 4: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 5: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 6: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 7: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 8: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            case 9: imprimirImagen("o","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+            default: imprimirImagen("No Mijo fallastes.","Tiro N1","/home/jp/"
+                + "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+                    break;
+        }
+    }
     public static void procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
