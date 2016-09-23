@@ -25,6 +25,8 @@ public class ConsonantesVocalesNumeros {
     {
         JOptionPane.showMessageDialog( null, texto );
     }
+    
+    
     /**
      * Metodo por el cual identificamos si el caracter dado por el usuario
      * es una vocal, consonante, numero o Simbolo.
@@ -117,6 +119,92 @@ public class ConsonantesVocalesNumeros {
         }
         
     }
+    
+    
+    /**
+     * Metodo por el cual identificamos si el caracter dado por el usuario
+     * es una vocal, consonante, numero o Simbolo.
+     */
+    public static String identificarCaracter2( char a)
+    {
+       String id;
+        
+        switch(a)
+        {
+            case 'A':
+            case 'E':
+            case 'I': id = "Vocal";     
+                     break;
+                     
+            case 'B':   
+            case 'C':   
+            case 'D':   
+               
+            case 'F':   
+            case 'G':   
+            case 'H':   
+               
+            case 'J':   
+            case 'K':   
+            case 'L':   
+            case 'M':   
+            case 'N':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'Ñ':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'O':   imprimir("El Caracter ingresado es una Vocal.");
+                        break;
+            case 'P':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'Q':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'R':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'S':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'T':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'U':   imprimir("El Caracter ingresado es una Vocal.");
+                        break;
+            case 'V':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'W':   imprimir("El Caracter ingresado es una Consonante.");
+                        break;
+            case 'X':   imprimir("El Caracter ingresado es una consonante.");
+                        break;
+            case 'Y':   imprimir("El Caracter ingresado es una consonante.");
+                        break;
+            case 'Z':   imprimir("El Caracter ingresado es una consonante.");
+                        break;
+            case '0':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '1':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '2':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '3':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '4':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '5':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '6':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '7':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '8':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            case '9':   imprimir("El Caracter ingresado es un Número.");
+                        break;
+            default:    imprimir("El Caracter ingresado es un Signo.");
+                        break;
+        }
+        
+        return id;
+        
+    }
+    
+    
     /**
      * @param args linea de comandos
      */

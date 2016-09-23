@@ -13,23 +13,24 @@ public class ProjectFinal1 {
 
     /**
      * Metodo para calcalcular el puntaje total del jugador
-     * @param tiro1  es el puntaje 1  que obtuvo el jugador
-     * @param tiro2  es el puntaje 2  que obtuvo el jugador
-     * @param tiro3  es el puntaje 3  que obtuvo el jugador
-     * @param tiro4  es el puntaje 4  que obtuvo el jugador
-     * @param tiro5  es el puntaje 5  que obtuvo el jugador
-     * @param tiro6  es el puntaje 6  que obtuvo el jugador
-     * @param tiro7  es el puntaje 7  que obtuvo el jugador
-     * @param tiro8  es el puntaje 8  que obtuvo el jugador
-     * @param tiro9  es el puntaje 9  que obtuvo el jugador
-     * @param tiro10 es el puntaje 10 que obtuvo el jugador
+     * @param a es el tiro inicial
+     * @param b es el tiro final
      * @return es el total de puntos que obtuvo el jugador
      */
-    public static int calcularPuntaje(int tiro1, int tiro2, int tiro3, int tiro4,
-            int tiro5, int tiro6, int tiro7, int tiro8, int tiro9, int tiro10) 
+    public static int calcularPuntaje(int a, int b) 
     {
-        return tiro1 + tiro2 + tiro3 + tiro4 + tiro5 + tiro6 + tiro7 + tiro8
-                + tiro9 + tiro10;
+        int puntaje, tiro;
+        puntaje = 0;
+        tiro = a;
+        do{
+        
+        puntaje += tiro;
+        tiro ++;
+        
+    }while(tiro >= b);
+        
+      return puntaje;  
+        
     }
     public static int leerEntero( String pregunta )
     {
@@ -53,37 +54,51 @@ public class ProjectFinal1 {
     }
     public static void procesarTiro(int tiro, String texto1)
     {
-        int a,b,c,d,e,f,g,h,i,j,k;
-        
+        int puntaje;
+     
           switch(tiro){
-            case 0:imprimirImagen("Has acertado en la Linea Doble",texto1,
+            case 0: puntaje = 5; 
+                    imprimirImagen("Has acertado en la Linea Doble\n            "
+                            + "Tu Puntaje es de: " + puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/1.jpg");
                     break;
-            case 1: imprimirImagen("Has acertado en la Linea Singular",texto1,
+            case 1: puntaje = 10;
+                    imprimirImagen("Has acertado en la Linea Singular\n         "
+                            + "Tu puntaje es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/2.jpg");
                     break;
-            case 2: imprimirImagen("Has acertado en la Linea Triple",texto1,
+            case 2: puntaje = 15;
+                    imprimirImagen("Has acertado en la Linea Triple\n         "
+                            + "Tu puntaje es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/3.jpg");
                     break;
-            case 3: imprimirImagen("Has acertado en la Linea Sencillo",texto1,
+            case 3: puntaje = 30;
+                    imprimirImagen("Has acertado en la Linea Sencillo\n         "
+                            + "Tu puntaje es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/4.jpg");
                     break;
-            case 4: imprimirImagen("Has acertado en la Bull Sencillo",texto1,
+            case 4: puntaje = 50;
+                    imprimirImagen("Has acertado en la Bull Sencillo\n          "
+                            + "Tu Puntajes es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/5.jpg");
                     break;
-            case 5:imprimirImagen("Has acertado en la Bull Doble",texto1,
+            case 5: puntaje = 100;
+                    imprimirImagen("Has acertado en la Bull Doble\n            "
+                            + "Tu Puntaje es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/6.jpg");
                     break;
-            default: imprimirImagen("Has fallado has dado fuera del blanco",texto1,
+            default:puntaje=0;
+                    imprimirImagen("Has fallado has dado fuera del blanco\n        "
+                    + "Tu puntaje es de: "+puntaje,texto1,
                     "/home/jp/NetBeansProjects/projectFinal1/src/7.jpg");
                     break;
         }
     }
-    public static void procesarJuego()
+    public static int procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
-                tiro10,azul,v,c,f,g,h,j,k,l,o,p,u;
-          
+                tiro10;
+     
         tiro1 = numeroAleatorio(0,5);
         procesarTiro(tiro1,"Tiro N°1");
         tiro2 = numeroAleatorio(0,6);
@@ -105,16 +120,26 @@ public class ProjectFinal1 {
         tiro10 = numeroAleatorio(0,6);
         procesarTiro(tiro10,"Tiro N°10");
        
+        return tiro1+tiro2+tiro3+tiro4+tiro5+tiro6+tiro7+tiro8+tiro9+tiro10;
         
     }
     public static void procesarPuntaje()
     {
-     String texto, nombre = "";
-     int tiro1,tiro2,tiro3,tiro4,tiro5,tiro6,tiro7,tiro8,tiro9,tiro10,puntaje;
-     puntaje = calcularPuntaje(tiro1,tiro2,tiro3,tiro4,tiro5,tiro6,tiro7,tiro8,
-             tiro9,tiro10);
-     if( puntaje >= 0){
-         imprimir("Nombre: "+ nombre+"\nPuntaje: "+ puntaje + "PARTIDA MALA.");
+      
+        String nombre;
+        nombre ="";
+      int puntaje,a;
+       
+     puntaje = calcularPuntaje(1,10);
+     
+     if( puntaje <= 300){
+         imprimir("Nombre: "+ nombre+"\nPuntaje: "+ puntaje +"\nPARTIDA MALA.");
+     }
+     else if( puntaje > 300 && puntaje <=600){
+         imprimir("Nombre: "+ nombre+"\nPuntaje: "+ puntaje+"\nPARTIDA NORMAL");
+     }
+     else{
+         imprimir("Nombre: "+nombre+"\nPuntaje: "+puntaje+"\nPARTIDA BUENA");
      }
      
     }
@@ -123,14 +148,14 @@ public class ProjectFinal1 {
         JOptionPane.showMessageDialog( null, texto );
     }
     public static void procesarMenu(){
-        String menu;
+        String menu, nombre;
         int opcion;
-        
+        nombre = JOptionPane.showInputDialog("Nombre del Jugador");
         menu = "INGRESE LA OPCION QUE DESEAS EJECUTAR \n\n";
         menu += "Marque  1.  Para Jugar \n";
         menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
-        imprimirImagen("Prueba tu suerte lanzando flechas hacia\n el blanco",
+        imprimirImagen("Prueba tu suerte lanzando \nflechas hacia el blanco",
                 "Inicio","/home/jp/"+ "NetBeansProjects/SueldoEmpleado/src/1.jpg");
         do{
             opcion = leerEntero( menu );
@@ -154,8 +179,7 @@ public class ProjectFinal1 {
      * @param args linea de comandos
      */
     public static void main(String[] args) {
-       String nombre;
-        nombre = leerString("Nombre: ");
+       
         procesarMenu();
     }
 

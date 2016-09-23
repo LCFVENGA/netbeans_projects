@@ -172,7 +172,7 @@ public class VerdurasValor {
                         break;
                 case 3: procesarSubMenC();
                         break;
-                case 4: imprimir("Muchas gracias por escojernos.");
+                case 4: imprimir("Muchas gracias por escogernos.");
                         imprimir("Vuelva pronto.");
                         break;
                 

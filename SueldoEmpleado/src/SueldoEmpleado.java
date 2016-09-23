@@ -1,6 +1,5 @@
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
-import javax.swing.*;
 /**
  * progrma para calcular el amuento de salario dado la categoria y sueldo del 
  * empleado, de acuerdo a la tabla:

@@ -48,27 +48,33 @@ public class LavaAutos {
     public static void calcularResultadoA(int opcion)
     // este es el codigo a ejecutar si el usuario escoje la opcion 1 
     {
-        int a ; double valor = 16000;
+        int a,b,r ; double valor = 16000;
         switch (opcion) {
             case 1:
-                a = leerEntero("Cuantos años tiene su Automovil actualmente");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 16000 + (16000 * 0.2);
                 }
                 else{
-                    valor = 20000;
+                    valor = 16000;
                 }   break;
             case 2:
-                a = leerEntero("Cuantos años tiene su Automovil actualmente");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 20000 + (20000 * 0.2);
                 }
                 else{
                     valor = 20000;
                 }   break;
             case 3:
-                a = leerEntero("Cuantos años tiene su Automovil actualmente");
-                if( a >= 8){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8){
                     valor = 27000 + (27000 * 0.2);
                 }
                 else{
@@ -88,19 +94,23 @@ public class LavaAutos {
     public static void calcularResultadoC(int opcion)
     // este es el codigo a ejecutar si el usuario escoje la opcion 2
     {
-        int a; double valor = 22000;
+        int a,b,r; double valor = 22000;
         switch(opcion){
             case 1:
-                a = leerEntero("Cuantos años tiene su Campero actualmente.");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 22000 + (22000 * 0.2);
                 }
                 else{
                     valor = 22000;
                 }   break;
             case 2:
-                a = leerEntero("Cuantos años tiene su Campero actualmente.");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 32000 + (32000 * 0.2);
                 }
                 else{
@@ -119,20 +129,24 @@ public class LavaAutos {
     public static void calcularResultadoM(int opcion)
     // este es el codigo a ejecutar si el usuario escoje la opcion 3.
     {
-        int a; double valor = 30000;
+        int a, b,r; double valor = 30000;
         
         switch(opcion){
             case 1:
-                a = leerEntero("Cuantos años tiene su Camioneta actualmente.");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 30000 + ( 30000 * 0.2);
                 }
                 else{
                     valor = 30000;
                 }   break;
             case 2: 
-                a = leerEntero("Cuantos años tiene su Camioneta actulamente.");
-                if( a >= 8 ){
+                a = leerEntero("Año actual.");
+                b = leerEntero("Modelo actual del vehiculo.");
+                r = a-b;
+                if( r >= 8 ){
                     valor = 35000 + ( 35000 * 0.2 );
                 }
                 else{
