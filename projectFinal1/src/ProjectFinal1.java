@@ -11,13 +11,13 @@ import javax.swing.JOptionPane;
  */
 public class ProjectFinal1 {
 
-    /**
+    /*
      * Metodo para calcalcular el puntaje total del jugador
      * @param a es el tiro inicial
      * @param b es el tiro final
      * @return es el total de puntos que obtuvo el jugador
      */
-    public static int calcularPuntaje(int a, int b) 
+    /*public static int calcularPuntaje(int a, int b) 
     {
         int puntaje, tiro;
         puntaje = 0;
@@ -31,20 +31,53 @@ public class ProjectFinal1 {
         
       return puntaje;  
         
-    }
+    }*/
+    
+    
+    /**
+     * 
+     * @param pregunta
+     * @return 
+     */
     public static int leerEntero( String pregunta )
     {
         return Integer.parseInt(JOptionPane.showInputDialog( pregunta ));
     }
+    
+    
+    
+    /**
+     * 
+     * @param pregunta
+     * @return 
+     */
     public static String leerString(String pregunta)
     {
         return JOptionPane.showInputDialog(pregunta);
     }
+    
+    
+    
+    /**
+     * 
+     * @param texto
+     * @param tipo
+     * @param imagen 
+     */
     public static void imprimirImagen(String texto, String tipo, String imagen)
     {
         JOptionPane.showMessageDialog(null,texto , tipo , 
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon( imagen ));
     }
+    
+    
+    
+    /**
+     * 
+     * @param minimo
+     * @param maximo
+     * @return 
+     */
     public static int numeroAleatorio(int minimo, int maximo)
     {
         int numero = (int) Math.floor(Math.random() * ( minimo - ( maximo + 1 ))
@@ -52,6 +85,14 @@ public class ProjectFinal1 {
         return numero;
         
     }
+    
+    
+    
+    /**
+     * Metodo para identificar en donde cayo el tiro que hizo el jugador
+     * @param tiro
+     * @param texto1 
+     */
     public static void procesarTiro(int tiro, String texto1)
     {
         int puntaje;
@@ -94,7 +135,44 @@ public class ProjectFinal1 {
                     break;
         }
     }
-    public static int procesarJuego()
+    
+    
+    
+    /**
+     * Metodo para que corra el juego
+     * @param n son los tiros que se hacen al ejecutar la opcion de jugar
+     * @param puntaje es el puntaje que optiene el jugador
+     * @return es el puntaje
+     */
+    public static int juego(int n, int puntaje)
+    {
+        int i, tiro;
+        puntaje = 0;
+        for(i=1;i<=n;i++)
+        {
+            tiro = numeroAleatorio(0,5);
+            procesarTiro(tiro,"Tiro");
+            switch(tiro){
+                case 0: puntaje = 5;
+                    break;
+                case 1: puntaje = 10;
+                    break;
+                case 2: puntaje = 15;
+                    break;
+                case 3: puntaje = 30;
+                    break;
+                case 4: puntaje = 50;
+                    break;
+                default: puntaje = 0;
+                    break;
+            }
+           
+            
+        }
+        
+        return puntaje;
+    }
+   /* public static int procesarJuego()
     {
         int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
                 tiro10;
@@ -122,16 +200,18 @@ public class ProjectFinal1 {
        
         return tiro1+tiro2+tiro3+tiro4+tiro5+tiro6+tiro7+tiro8+tiro9+tiro10;
         
-    }
-    public static void procesarPuntaje()
+    }*/
+    
+    
+    
+    /**
+     * Metodo para identificar si la partida es buena o mala
+     * @param nombre el nombre del usuario
+     * @param puntaje es el puntaje que lleva el usuario
+     */
+    public static void procesarPuntaje(String nombre, int puntaje)
     {
-      
-        String nombre;
-        nombre ="";
-      int puntaje,a;
-       
-     puntaje = calcularPuntaje(1,10);
-     
+  
      if( puntaje <= 300){
          imprimir("Nombre: "+ nombre+"\nPuntaje: "+ puntaje +"\nPARTIDA MALA.");
      }
@@ -143,28 +223,44 @@ public class ProjectFinal1 {
      }
      
     }
+    
+    
+    
+    /**
+     * Metodo para imprimir un texto
+     * @param texto el texto que se desea imprimir
+     */
     public static void imprimir( String texto )
     {
         JOptionPane.showMessageDialog( null, texto );
     }
-    public static void procesarMenu(){
-        String menu, nombre;
-        int opcion;
-        nombre = JOptionPane.showInputDialog("Nombre del Jugador");
+    
+    
+    
+    /**
+     * 
+     * @param nombre
+     * @param puntaje 
+     */
+    public static void procesarMenu(String nombre, int puntaje){
+        String menu;
+        int opcion,c;
+        
         menu = "INGRESE LA OPCION QUE DESEAS EJECUTAR \n\n";
         menu += "Marque  1.  Para Jugar \n";
         menu += "Marque  2.  Para ver tus Puntajes \n";
         menu += "Marque  3.  para Salir";
-        imprimirImagen("Prueba tu suerte lanzando \nflechas hacia el blanco",
-                "Inicio","/home/jp/"+ "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+        
         do{
             opcion = leerEntero( menu );
-            
+            c = puntaje;
             switch(opcion){
-                case 1: procesarJuego();
+                case 1: puntaje = juego(1,puntaje);
+                        puntaje += c;
                         break;
                 
-                case 2: ProcesarPuntaje();
+                case 2:
+                    procesarPuntaje(nombre,puntaje);
                         break;
                 
                 case 3: break;
@@ -175,12 +271,19 @@ public class ProjectFinal1 {
         }while (opcion != 3);
     }
 
+    
+    
     /**
      * @param args linea de comandos
      */
     public static void main(String[] args) {
-       
-        procesarMenu();
+        String nombre;
+        int puntaje;
+       imprimirImagen("Prueba tu suerte lanzando \nflechas hacia el blanco",
+             "Inicio","/home/jp/"+ "NetBeansProjects/SueldoEmpleado/src/1.jpg");
+       nombre = leerString("Nombre: ");
+       puntaje=0;
+       procesarMenu(nombre, puntaje);
     }
 
 }
