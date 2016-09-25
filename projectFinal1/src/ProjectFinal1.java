@@ -150,7 +150,7 @@ public class ProjectFinal1 {
         puntaje = 0;
         for(i=1;i<=n;i++)
         {
-            tiro = numeroAleatorio(0,5);
+            tiro = numeroAleatorio(0,6);
             procesarTiro(tiro,"Tiro");
             switch(tiro){
                 case 0: puntaje = 5;
@@ -163,6 +163,8 @@ public class ProjectFinal1 {
                     break;
                 case 4: puntaje = 50;
                     break;
+                case 5: puntaje = 100;
+                        break;
                 default: puntaje = 0;
                     break;
             }
