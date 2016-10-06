@@ -11,33 +11,12 @@ import javax.swing.JOptionPane;
  */
 public class ProjectFinal1 {
 
-    /*
-     * Metodo para calcalcular el puntaje total del jugador
-     * @param a es el tiro inicial
-     * @param b es el tiro final
-     * @return es el total de puntos que obtuvo el jugador
-     */
-    /*public static int calcularPuntaje(int a, int b) 
-    {
-        int puntaje, tiro;
-        puntaje = 0;
-        tiro = a;
-        do{
+
         
-        puntaje += tiro;
-        tiro ++;
-        
-    }while(tiro >= b);
-        
-      return puntaje;  
-        
-    }*/
-    
-    
     /**
-     * 
-     * @param pregunta
-     * @return 
+     * Metodo para leer un entero
+     * @param pregunta es la pregunta que se le hace al usuario
+     * @return es el entero que ingresa el usuario
      */
     public static int leerEntero( String pregunta )
     {
@@ -47,9 +26,9 @@ public class ProjectFinal1 {
     
     
     /**
-     * 
-     * @param pregunta
-     * @return 
+     * Metodo para leer un String
+     * @param pregunta es la pregunta que se le hace al usuario
+     * @return es la respuesta del usuario
      */
     public static String leerString(String pregunta)
     {
@@ -59,10 +38,10 @@ public class ProjectFinal1 {
     
     
     /**
-     * 
-     * @param texto
-     * @param tipo
-     * @param imagen 
+     * Metodo para imprimir una imagen
+     * @param texto es el texto que le saldra al lado derecho de la imagen
+     * @param tipo es el texto o mensaje que saldra en la barra superior
+     * @param imagen es la imagen que se va a mostrar o a imprimir
      */
     public static void imprimirImagen(String texto, String tipo, String imagen)
     {
@@ -73,10 +52,11 @@ public class ProjectFinal1 {
     
     
     /**
-     * 
-     * @param minimo
-     * @param maximo
-     * @return 
+     * Metodo para que la maquina nos de un numero aleatorio que se encuentre en
+     * el rango dado.
+     * @param minimo es el numero menor que se encuentra en el rango
+     * @param maximo es el nuumero mayor que se encuentra en el rango
+     * @return es el numero aleatorio que se encuentra en el rango que nos da.
      */
     public static int numeroAleatorio(int minimo, int maximo)
     {
@@ -95,6 +75,7 @@ public class ProjectFinal1 {
      */
     public static void procesarTiro(int tiro, String texto1)
     {
+//Este metodo se encargara de identificar el tiro y la imagen que le corresponde
         int puntaje;
      
           switch(tiro){
@@ -138,6 +119,7 @@ public class ProjectFinal1 {
     
     
     
+    
     /**
      * Metodo para que corra el juego
      * @param n son los tiros que se hacen al ejecutar la opcion de jugar
@@ -174,35 +156,7 @@ public class ProjectFinal1 {
         
         return puntaje;
     }
-   /* public static int procesarJuego()
-    {
-        int tiro1, tiro2, tiro3, tiro4, tiro5, tiro6, tiro7, tiro8, tiro9, 
-                tiro10;
-     
-        tiro1 = numeroAleatorio(0,5);
-        procesarTiro(tiro1,"Tiro N°1");
-        tiro2 = numeroAleatorio(0,6);
-        procesarTiro(tiro2,"Tiro N°2");
-        tiro3 = numeroAleatorio(0,6);
-        procesarTiro(tiro3,"Tiro N°3");
-        tiro4 = numeroAleatorio(0,6);
-        procesarTiro(tiro4,"Tiro N°4");
-        tiro5 = numeroAleatorio(0,6);
-        procesarTiro(tiro5,"Tiro N°5");
-        tiro6 = numeroAleatorio(0,6);
-        procesarTiro(tiro6,"Tiro N°6");
-        tiro7 = numeroAleatorio(0,6);
-        procesarTiro(tiro7,"Tiro N°7");
-        tiro8 = numeroAleatorio(0,6);
-        procesarTiro(tiro8,"Tiro N°8");
-        tiro9 = numeroAleatorio(0,6);
-        procesarTiro(tiro9,"Tiro N°9");
-        tiro10 = numeroAleatorio(0,6);
-        procesarTiro(tiro10,"Tiro N°10");
-       
-        return tiro1+tiro2+tiro3+tiro4+tiro5+tiro6+tiro7+tiro8+tiro9+tiro10;
-        
-    }*/
+   
     
     
     
@@ -213,6 +167,7 @@ public class ProjectFinal1 {
      */
     public static void procesarPuntaje(String nombre, int puntaje)
     {
+        
   
      if( puntaje <= 300){
          imprimir("Nombre: "+ nombre+"\nPuntaje: "+ puntaje +"\nPARTIDA MALA.");
@@ -225,6 +180,7 @@ public class ProjectFinal1 {
      }
      
     }
+  
     
     
     
@@ -239,14 +195,15 @@ public class ProjectFinal1 {
     
     
     
+    
     /**
-     * 
-     * @param nombre
-     * @param puntaje 
+     * Metodo para procesar menu
+     * @param nombre es el nombre ingresado por el jugador
+     * @param puntaje esel puntaje que lleva el jugador
      */
     public static void procesarMenu(String nombre, int puntaje){
         String menu;
-        int opcion,c;
+        int opcion,c,i=1;
         
         menu = "INGRESE LA OPCION QUE DESEAS EJECUTAR \n\n";
         menu += "Marque  1.  Para Jugar \n";
@@ -259,10 +216,15 @@ public class ProjectFinal1 {
             switch(opcion){
                 case 1: puntaje = juego(1,puntaje);
                         puntaje += c;
+                        i++;
+                        if( i == 10 ){
+                            procesarPuntaje(nombre,puntaje);
+                            puntaje = 0;
+                        }
                         break;
                 
                 case 2:
-                    procesarPuntaje(nombre,puntaje);
+                    imprimir("Tu puntaje acumulado es: " + puntaje);
                         break;
                 
                 case 3: break;
