@@ -86,13 +86,14 @@ public class Calculadorprom {
     {
         DecimalFormat decimal = new DecimalFormat("#.##");
         String lista,nombre;
-        double nota, promedio, promediof;
+        double nota, promedio, promediof, mayor, menor;
         int i,j;
         
     
         lista = "";
-        promediof=0;
-  
+        promediof = 0;
+        mayor = 0.0;
+        menor = 5.0;
         for( i=1; i<=n; i++)
         {
             nombre = JOptionPane.showInputDialog("Nombre estudiante");
@@ -118,13 +119,24 @@ public class Calculadorprom {
                     else{
                         lista += decimal. format(promedio) + "  Reprobo";
                     }
+                    if( promedio < menor)
+                    {
+                        menor = promedio;
+                        
+                    }
+                    if( promedio > mayor )
+                    {
+                        mayor = promedio;
+                    }
                 }
                
             }
             lista +="\n";
              if( i == n ){
                 promediof = promediof / n;
-                lista +="El promedio del curso es: " + decimal. format(promediof);
+                lista +="El promedio del curso es: " + decimal.format(promediof);
+                lista +="\n\nEl promedio mayor fue de: " + decimal.format(mayor);
+                lista +="\nEl promedio menor fue de: " + decimal.format(menor);
             }
         }
         return lista;
