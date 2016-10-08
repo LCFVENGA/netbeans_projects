@@ -30,9 +30,11 @@ public class ProjectFinal1 {
             try {
                 return Integer.parseInt(JOptionPane.showInputDialog(pregunta));
             } catch (Exception e) {
-// si el usuario ingresa otro caracter diferente al de un numero esto sera ejecutado.
+/* si el usuario ingresa otro caracter diferente al de un numero esto sera 
+ * ejecutado.
+ */
                 JOptionPane.showMessageDialog(null, "ERROR, INGRESE UN NUMERO",
-                        "Ventana de Error", JOptionPane.ERROR_MESSAGE);
+                            "Ventana de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -58,9 +60,11 @@ public class ProjectFinal1 {
      * @param tipo es el texto o mensaje que saldra en la barra superior
      * @param imagen es la imagen que se va a mostrar o a imprimir
      */
-    public static void imprimirImagen(String texto, String tipo, String imagen) {
+    public static void imprimirImagen(String texto, String tipo, String imagen) 
+    {
         JOptionPane.showMessageDialog(null, texto, tipo,
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(ProjectFinal1.class.getResource(imagen)));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(ProjectFinal1.
+                            class.getResource(imagen)));
     }
 
     
@@ -89,7 +93,9 @@ public class ProjectFinal1 {
      * @param texto1
      */
     public static void procesarTiro(int tiro, String texto1) {
-//Este metodo se encargara de identificar el tiro y la imagen que le corresponden y el puntaje.
+/* Este metodo se encargara de identificar el tiro y la imagen que le 
+ * corresponde y el puntaje.
+ */
         int puntaje;
 
         switch (tiro) {
@@ -138,16 +144,17 @@ public class ProjectFinal1 {
      * Metodo para que el juego empiese a contar los puntos.
      *
      * @param n son los tiros que se hacen al ejecutar la opcion de jugar
+     * @param p es el que me va a identificar que numero o que tiro es.
      * @param puntaje es el puntaje que optiene el jugador
      * @return es el puntaje
      */
-    public static int juego(int n, int puntaje) {
+    public static int juego(int n, int p, int puntaje) {
 
         int i, tiro;
         puntaje = 0;
         for (i = 1; i <= n; i++) {
             tiro = numeroAleatorio(0, 6);
-            procesarTiro(tiro, "Tiro");
+            procesarTiro(tiro, "Tiro " + p);
             switch (tiro) {
                 case 0:
                     puntaje = 5;
@@ -187,11 +194,14 @@ public class ProjectFinal1 {
     public static void procesarPuntaje(String nombre, int puntaje) {
 
         if (puntaje <= 300) {
-            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + "\nPARTIDA MALA.");
+            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + 
+                        "\nPARTIDA MALA.");
         } else if (puntaje > 300 && puntaje <= 600) {
-            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + "\nPARTIDA NORMAL");
+            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + 
+                        "\nPARTIDA NORMAL");
         } else {
-            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + "\nPARTIDA BUENA");
+            imprimir("Nombre: " + nombre + "\nPuntaje: " + puntaje + 
+                        "\nPARTIDA BUENA");
         }
 
     }
@@ -213,7 +223,7 @@ public class ProjectFinal1 {
      * Metodo para procesar menu
      *
      * @param nombre es el nombre ingresado por el jugador
-     * @param puntaje esel puntaje que lleva el jugador
+     * @param puntaje es el puntaje que lleva el jugador
      */
     public static void procesarMenu(String nombre, int puntaje) {
         String menu;
@@ -229,13 +239,13 @@ public class ProjectFinal1 {
             c = puntaje;
             switch (opcion) {
                 case 1:
-                    puntaje = juego(1, puntaje);
+                    puntaje = juego(1,i, puntaje);
                     puntaje += c;
                     i++;
-                    if (i == 10) {
+                    if (i > 10) {
                         procesarPuntaje(nombre, puntaje);
                         puntaje = 0;
-                        i = 0;
+                        i = 1;
                     }
                     break;
 
@@ -261,10 +271,10 @@ public class ProjectFinal1 {
     public static void main(String[] args) {
         String nombre;
         int puntaje;
-        imprimirImagen("Prueba tu suerte lanzando \nflechas hacia el blanco, le \n"
-                + "recuerdo que hay un \nlimite de tiros el cual es 10, \ndespues de "
-                + "eso el puntaje \nse reiniciara.",
-                "Inicio", "inicio.jpg");
+        imprimirImagen("Prueba tu suerte lanzando \nflechas hacia el blanco, "
+                + "le \nrecuerdo que hay un \nlimite de tiros el cual es 10, "
+                + "\ndespues de eso el puntaje \nse reiniciara.","Inicio",
+                    "inicio.jpg");
         nombre = leerString("Nombre: ");
         puntaje = 0;
         procesarMenu(nombre, puntaje);
