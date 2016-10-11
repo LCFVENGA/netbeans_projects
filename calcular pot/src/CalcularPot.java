@@ -50,19 +50,34 @@ public class CalcularPot {
      * @param b es la cantidad de veces que se va a multiplicar a.
      * @return es el resultado .
      */
-    public static int calcularPotencia(int a, int b )
+    public static double calcularPotencia(int a, int b )
     {
-        int i,potencia;
-        i = 1;
-        potencia = a;
-        
-        while(i<b)
+        int i;
+        double potencia;
+        i = 0;
+        potencia = 1;
+      
+        while(i < b || i > b)
         {
-            potencia*=a;
-            i++;
+            if(i < b)
+            {
+                potencia*=a;
+                i++;
+            }
+            else if(i > b)
+            {
+                potencia*=a;
+                i--;
+            }
+   
+            
         }
-        
-        return potencia;
+       
+        if(i == b && b<0)
+        {
+            potencia = 1/potencia;
+        }
+        return (potencia);
     }
     
     
@@ -72,11 +87,19 @@ public class CalcularPot {
      */
     public static void main(String[] args) {
 
-        int a,b,potencia;
+        int a,b;
+        double potencia;
         
         a = leerEntero("Ingrese el numero.");
         b = leerEntero("Ingrese el numero por el cual se va a potencialisar.");
-        
+        if( a == 0)
+        {
+            if( b == 0)
+            {
+                imprimir("El Valor es Indeterminado.");
+                return;
+            }
+        }
         potencia = calcularPotencia(a,b);
         
         imprimir("El resultado es: " + potencia);

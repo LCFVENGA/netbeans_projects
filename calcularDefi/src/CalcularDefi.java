@@ -65,7 +65,13 @@ public class CalcularDefi {
         promedio = 0;
         i = 1;
         do{
-            a = leerDouble("Nota N°" + i);
+            do{
+                a = leerDouble("Nota N°" + i);
+                if(a < 0 || a > 5)
+                {
+                    imprimir("recuerdo que la nota debe ser de '0.0' a '5.0'");
+                }
+            }while(a<0||a>5);
             if(mayor < a)
             {
                 mayor = a;

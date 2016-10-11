@@ -78,7 +78,9 @@ public class Calculadorprom {
      * Metodo para calcular el promedio de un estudiante.
      * @param n es el numero de estudiantes. 
      * @param m es el numero de notas.
-     * @return nos retorna un texto en el cual tenemos una lista con los nombres
+     * @return nos retorna un texto e2
+     * 2
+     * 2n el cual tenemos una lista con los nombres
      *         promedio de cada alumno, si aprobo o reprobo segun nota y el 
      *         promedio general de curso.
      */
