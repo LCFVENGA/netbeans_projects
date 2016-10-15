@@ -34,10 +34,10 @@ public class Pascal {
     
     public static String pascal(int n)
     {
-        int i,j,cont;
+        int i,j;
         String cadena;
         cadena ="";
-        cont = 0;
+       
         
         for(i=1;i<=n;i++)
         {
