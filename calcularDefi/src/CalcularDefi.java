@@ -9,7 +9,7 @@ import javax.swing.*;
 public class CalcularDefi {
 
     
-    public static double leerDouble(String pregunta)
+    public static double leerDouble ( String pregunta )
     {
         while( true )
         {
@@ -28,7 +28,7 @@ public class CalcularDefi {
     
     
     
-    public static int leerEntero(String pregunta)
+    public static int leerEntero ( String pregunta )
     {
         while( true )
         {
@@ -55,7 +55,7 @@ public class CalcularDefi {
     
     
     
-    public static void calcularDefinitiva( int n )
+    public static void calcularDefinitiva ( int n )
     {
         DecimalFormat decimal = new DecimalFormat("#.##");
         double promedio, mayor, menor, a;

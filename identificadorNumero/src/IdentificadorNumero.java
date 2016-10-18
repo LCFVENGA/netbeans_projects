@@ -49,9 +49,9 @@ public class IdentificadorNumero {
      */
     public static int[] readIntegers ( String question, int quantity )
     {
-        int integers[],i;
+        int integers[], i;
         
-        integers = new int [quantity];
+        integers = new int [ quantity ];
         
         for( i = 0; i < integers.length; i++ )
         {

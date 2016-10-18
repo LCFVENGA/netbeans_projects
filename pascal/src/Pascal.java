@@ -13,7 +13,7 @@ public class Pascal {
      * @param pregunta es la pregunta que se le va a hacer a el usuario.
      * @return es el entero que ingrese el usuario como respuesta
      */
-    public static int leerEntero (String pregunta)
+    public static int leerEntero ( String pregunta )
     {
         while( true )
         {
@@ -21,7 +21,7 @@ public class Pascal {
             {
                return Integer.parseInt(JOptionPane.showInputDialog(pregunta));
             }
-            catch(Exception e)
+            catch( Exception e )
             {
                 JOptionPane.showMessageDialog(null, "Error, por favor ingrese un "
                 + "numero","Ventada de Error",JOptionPane.ERROR_MESSAGE);
@@ -31,42 +31,40 @@ public class Pascal {
     
     
     
-    
-    public static String pascal(int n)
-    {
-        int i,j;
-        String cadena;
-        cadena ="";
-       
-        
-        for(i=1;i<=n;i++)
-        {
-           cadena+= 1;
-           for(j=1;j<=i;j++)
-           {
-               if(j>2)
-               {
-                   cadena+= j - 1;
-               }
-           }
+   /**
+    * Metodo para el triangulo de pascal.
+    * @param n es numero que da el grande del triangulo.
+    */ 
+   public static void triangulo ( int n )
+   {
+       int r, numero;
+       String p = "";
+       for( int i = 0; i <= n; i++ )
+       {
+           numero = 1;
+           r =  i + 1;
           
-           if(i>1 && i<=n)
+           for( int j = 0; j <= i; j++ )
            {
-               cadena+=1;
+               if( j > 0 )
+               {
+                   numero = numero * ( r - j ) / j; 
+               }
+               p += numero + " ";
            }
-           
-           cadena+="\n";
-        }
-        return cadena;
-    }
+           p += "\n";
+       }
+        imprimir( p );
+   }
+    
     
     
     
     /**
-     * Metodo para mostrar un mensage un la pantalla 
+     * Metodo para mostrar un mensage un la pantalla. 
      * @param texto es el texto que se desea imprimir.
      */
-    public static void imprimir (String texto)
+    public static void imprimir ( String texto )
     {
         JOptionPane.showMessageDialog( null, texto );
     }
@@ -74,15 +72,28 @@ public class Pascal {
     
     
     /**
-     * @param args the command line arguments
+     * @param args linea de comandos.
      */
     public static void main(String[] args) {
         
-        int n = leerEntero("numero");
-        String h;
+        int n;
         
-        h = pascal(n);
-        imprimir(h);
+        imprimir("El maximo numero ingresado es de 10 y el minimo es de 0.");
+        
+        do
+        {
+        n = leerEntero ( "numero" );
+        if( n < 1 )
+        {
+            imprimir ( "El numero debe de ser mayor de 0." ); 
+        }
+        if( n > 10 )
+        {
+            imprimir ( "El numero debe de ser menor de 11.");
+        }
+        }while( n < 1 || n > 10 );
+        triangulo( n );
+      
     }
     
 }
