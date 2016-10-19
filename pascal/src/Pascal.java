@@ -37,14 +37,16 @@ public class Pascal {
     */ 
    public static void triangulo ( int n )
    {
-       int r, numero;
+       int r, numero,i,j;
+       
        String p = "";
-       for( int i = 0; i <= n; i++ )
+       
+       for( i = 0; i <= n; i++ )
        {
            numero = 1;
            r =  i + 1;
           
-           for( int j = 0; j <= i; j++ )
+           for( j = 0; j <= i; j++ )
            {
                if( j > 0 )
                {
@@ -82,16 +84,20 @@ public class Pascal {
         
         do
         {
-        n = leerEntero ( "numero" );
-        if( n < 1 )
-        {
-            imprimir ( "El numero debe de ser mayor de 0." ); 
-        }
-        if( n > 10 )
-        {
-            imprimir ( "El numero debe de ser menor de 11.");
-        }
-        }while( n < 1 || n > 10 );
+            n = leerEntero ( "Numero" );
+            
+            if( n < 1 )
+            {
+                imprimir ( "El numero debe de ser mayor de 0." ); 
+            }
+            
+            if( n > 10 )
+            {
+                imprimir ( "El numero debe de ser menor o igual a 10.");
+            }
+            
+        } while ( n < 1 || n > 10 );
+        
         triangulo( n );
       
     }

@@ -2,7 +2,7 @@ package easytarget.storage;
 
 /**
  *
- * @author jp
+ * @author Carabali Rivera Juan Pablo.
  */
 public class Player {
     private int id;
