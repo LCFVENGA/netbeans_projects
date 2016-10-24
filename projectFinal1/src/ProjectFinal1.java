@@ -151,7 +151,7 @@ public class ProjectFinal1 {
     public static int juego(int n, int p, int puntaje) {
 
         int i, tiro;
-        puntaje = 0;
+       
         for (i = 1; i <= n; i++) {
             tiro = numeroAleatorio(0, 6);
             procesarTiro(tiro, "Tiro " + p);
