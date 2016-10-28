@@ -71,6 +71,24 @@ public class ProjectFinal2 {
     
     
     
+    public static void processStatics ( String[] names, int[] score, String[] games )
+    {
+        String departure;
+        int i;
+        
+        departure = "";
+        
+        for( i = 0; i < names.length; i++ )
+        {
+            departure += i+1+"." + names[i] + " Puntaje: " + score[i] + " "+ games[i];
+            departure += "\n";
+        }
+        
+        toPrint( departure );
+    }
+    
+    
+    
     public static int[] readIntegers ( int quantity, int position, int score )
     {
         int number[];
@@ -151,7 +169,7 @@ public class ProjectFinal2 {
         if (scoreFinal <= 300) {
             toPrint("Nombre: " + name + "\nPuntaje: " + scoreFinal + 
                         "\nPARTIDA MALA.");
-            return game = "PARTIDA MALA:";
+            return game = "PARTIDA MALA.";
         } else if (scoreFinal > 300 && scoreFinal <= 600) {
             toPrint("Nombre: " + name + "\nPuntaje: " + scoreFinal + 
                         "\nPARTIDA NORMAL");
@@ -205,7 +223,7 @@ public class ProjectFinal2 {
     
     
     
-    public static void processStatics ( String[] name, int[] score, String[] games, int j )
+    /*public static void processStatics ( String[] name, int[] score, String[] games, int j )
     {
         int i;
         String statics;
@@ -218,14 +236,14 @@ public class ProjectFinal2 {
         statics += i+1 + "." + name[i] + " " + score[i] + " " + games[i];
         
         toPrint( statics );
-    }
+    }*/
     
     
     
     public static void processMenu ()
     {
-        String menu, names[], games[], name, game;
-        int option,i,j,score,scoreFinal[],sum;
+        String menu, names[], games[], name;
+        int option,i,j,p,score,scoreFinal[],sum;
         
         menu = "Seleccione la opcion que deseea ejecutar.\n\n";
         menu += "Presione 1. Para Jugar.\n";
@@ -233,26 +251,32 @@ public class ProjectFinal2 {
         menu += "Presione 3. Para ver las estadisticas.\n";
         menu += "presione 4. Para Salir.";
         
+        p = 1;
         i = 1;
         j = 0;
         score = 0;
         
+        names = new String[5];
+        scoreFinal = new int[5];
+        games = new String[5];
+        
         do{
             
-            names = new String[5];
-            scoreFinal = new int[5];
-            games = new String[5];
+            
             sum = score;
-            if( i == 1 )
+            
+            if( p == 1 )
             {
-                name = readString("Nombre");
+                name = readString( "Nombre" );
                 names[j] = name;
+                p++;
             }
             option = readInt ( menu );
         
             switch ( option )
             {
-                case 1: 
+                case 1:
+               
                     score = processGame( i );
                     score += sum;
                     i++;
@@ -262,6 +286,7 @@ public class ProjectFinal2 {
                         scoreFinal[j] = score;
                         games[j] = processGameOver( names[j] , scoreFinal[j] );
                         i = 1;
+                        p = 1 ;
                         score = 0;
                         j++;
                         
@@ -270,13 +295,13 @@ public class ProjectFinal2 {
                     break;
                 
                 case 2:
-                    toPrint("puntaje"+(scoreFinal[0]+scoreFinal[1]));
+                    
                     toPrint("El puntaje acumulado en esta partida es de: " + 
                             score );
                     break;
                 
                 case 3:
-                    processStatics( names, scoreFinal, games, j);
+                    processStatics( names, scoreFinal, games );
                     break;
                 
                 case 4: 
@@ -293,7 +318,7 @@ public class ProjectFinal2 {
     
     /**
      * @param args the command line arguments
-     * 2
+     * 
      */
     public static void main(String[] args) {
         // TODO code application logic here
