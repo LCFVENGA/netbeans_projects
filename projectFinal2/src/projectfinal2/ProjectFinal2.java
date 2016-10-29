@@ -45,6 +45,31 @@ public class ProjectFinal2 {
     
     
     
+    public static void toPrintIntegers ( int[]array )
+    {
+        String departure;
+        int i;
+        
+        departure = "Numero de veces escojido un blanco para jugar.\n\n";
+        
+        for(i=0; i < array.length; i++ )
+        {
+            departure +=  (i+1) + ". " + array[i];
+            if(array[i]==1)
+            {
+                departure += " vez.\n";
+            }
+            else
+            {
+                departure += " veces.\n";
+            }
+        }
+        
+        toPrint( departure );
+    }
+    
+    
+    
     public static void toPrintImage ( String text, String type, String image )
     {
         JOptionPane.showMessageDialog( null, text, type, JOptionPane.INFORMATION_MESSAGE,
@@ -71,7 +96,7 @@ public class ProjectFinal2 {
     
     
     
-    public static void processStatics ( String[] names, int[] score, String[] games )
+    public static String processStatics ( String[] names, int[] score, String[] games )
     {
         String departure;
         int i;
@@ -80,11 +105,17 @@ public class ProjectFinal2 {
         
         for( i = 0; i < names.length; i++ )
         {
-            departure += i+1+"." + names[i] + " Puntaje: " + score[i] + " "+ games[i];
+            if( names[i] == null )
+            {
+                return departure;
+            }
+            departure += i + 1 + "." + names[i] + " Puntaje: " + score[i] + " "
+                    + games[i];
             departure += "\n";
+            
         }
         
-        toPrint( departure );
+        return departure;
     }
     
     
@@ -166,18 +197,20 @@ public class ProjectFinal2 {
     {
         String game;
         
+        game ="";
+        
         if (scoreFinal <= 300) {
             toPrint("Nombre: " + name + "\nPuntaje: " + scoreFinal + 
                         "\nPARTIDA MALA.");
-            return game = "PARTIDA MALA.";
+            return game += "PARTIDA MALA.";
         } else if (scoreFinal > 300 && scoreFinal <= 600) {
             toPrint("Nombre: " + name + "\nPuntaje: " + scoreFinal + 
                         "\nPARTIDA NORMAL");
-            return game = "PARTIDA NORMAL.";
+            return game += "PARTIDA NORMAL.";
         } else {
             toPrint("Nombre: " + name + "\nPuntaje: " + scoreFinal + 
                         "\nPARTIDA BUENA");
-            return game = "PARTIDA BUENA.";
+            return game += "PARTIDA BUENA.";
         }
 
     }
@@ -242,8 +275,8 @@ public class ProjectFinal2 {
     
     public static void processMenu ()
     {
-        String menu, names[], games[], name;
-        int option,i,j,p,score,scoreFinal[],sum;
+        String menu, names[], games[], name, statics;
+        int option,i,j,p,score,scoreFinal[],sum, targets[],target;
         
         menu = "Seleccione la opcion que deseea ejecutar.\n\n";
         menu += "Presione 1. Para Jugar.\n";
@@ -255,7 +288,9 @@ public class ProjectFinal2 {
         i = 1;
         j = 0;
         score = 0;
+        target=0;
         
+        targets = new int[10];
         names = new String[5];
         scoreFinal = new int[5];
         games = new String[5];
@@ -268,6 +303,12 @@ public class ProjectFinal2 {
             if( p == 1 )
             {
                 name = readString( "Nombre" );
+                do
+                {
+                target = readInt( "Blancos disponibles [1 - 10] del 1 al 10 " );
+                }while (target < 1 || target > 10 );
+                
+                targets[(target-1)] = +1;
                 names[j] = name;
                 p++;
             }
@@ -301,7 +342,9 @@ public class ProjectFinal2 {
                     break;
                 
                 case 3:
-                    processStatics( names, scoreFinal, games );
+                    statics = processStatics( names, scoreFinal, games );
+                    toPrint( statics );
+                    toPrintIntegers( targets );
                     break;
                 
                 case 4: 
