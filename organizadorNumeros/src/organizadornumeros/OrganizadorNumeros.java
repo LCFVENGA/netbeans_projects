@@ -114,7 +114,7 @@ public class OrganizadorNumeros {
 
                 {
 
-                    int tmp = integers[j+1];
+                    int tmp = integers[j + 1];
 
                     integers [j+1] = integers[j];
                     integers[j] = tmp;
