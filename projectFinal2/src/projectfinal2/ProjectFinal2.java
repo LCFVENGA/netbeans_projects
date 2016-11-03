@@ -28,12 +28,12 @@ public class ProjectFinal2 {
         {
             try
             {
-                return Integer.parseInt(JOptionPane.showInputDialog( question ));
+              return Integer.parseInt(JOptionPane.showInputDialog(question));
             }
             catch( Exception e )
             {
-                JOptionPane.showMessageDialog( null, "Error, Ingrese un número."
-                ,"Ventana de Error",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Error, Ingrese un número"
+                        + ".","Ventana de Error",JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -57,9 +57,10 @@ public class ProjectFinal2 {
     
     
     
-    public static void toPrintIntegers ( int[]array,String[]score0,String[]score1,
-            String[]score2,String[]score3,String[]score4,String[]score5,String[]score6,
-            String[]score7,String[]score8,String[]score9,String[] scoreFinalT )
+    public static void toPrintIntegers ( int[]array,String[]score0,
+            String[]score1,String[]score2,String[]score3,String[]score4,
+            String[]score5,String[]score6,String[]score7,String[]score8,
+            String[]score9,String[] scoreFinalT )
     {
         String departure;
         int i,j=0;
@@ -79,44 +80,128 @@ public class ProjectFinal2 {
             }
             switch(j)
             {
-                case 0: departure += score0[0];
+                case 0: 
+                    if( score0[0] != null )
+                    {
+                        departure += score0[0];
                         departure += score0[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 1: departure += score1[0];
+                case 1: 
+                    if( score1[0] != null )
+                    {
+                        departure += score1[0];
                         departure += score1[1] + "\n";
+                    }   
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                 
-                case 2: departure += score2[0];
+                case 2: 
+                    if( score2[0] != null )
+                    {
+                        departure += score2[0];
                         departure += score2[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 3: departure += score3[0];
+                case 3: 
+                    if( score3[0] != null )
+                    {
+                        departure += score3[0];
                         departure += score3[1] + "\n";
                         break;
-                        
-                case 4: departure += score4[0];
+                    }   
+                case 4: 
+                    if( score4[0] != null )
+                    {
+                        departure += score4[0];
                         departure += score4[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 5: departure += score5[0];
+                case 5: 
+                    if( score5[0] != null )
+                    {
+                        departure += score5[0];
                         departure += score5[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 6: departure += score6[0];
+                case 6: 
+                    if( score6[0] != null )
+                    {
+                        departure += score6[0];
                         departure += score6[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 7: departure += score7[0];
+                case 7: 
+                    if( score7[0] != null )
+                    {
+                        departure += score7[0];
                         departure += score7[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 8: departure += score8[0];
+                case 8: 
+                    if( score8[0] != null )
+                    {
+                        departure += score8[0];
                         departure += score8[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
-                case 9: departure += score9[0];
+                case 9: 
+                    if( score9[0] != null )
+                    {
+                        departure += score9[0];
                         departure += score9[1] + "\n";
+                    }
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
                         break;
                         
                 default:
@@ -127,23 +212,33 @@ public class ProjectFinal2 {
            
             
         }
-        departure += "\nEl puntaje mas alto y mas bajo en general.\n";
-        departure += scoreFinalT[0];
-        departure += scoreFinalT[1];
+        if( scoreFinalT[0] != null )
+        {
+            departure += "\nEl puntaje mas alto y mas bajo en general.\n";
+            departure += scoreFinalT[0];
+            departure += scoreFinalT[1];
+        }
+        else
+        {
+            departure += "\nEl puntaje mas alto y mas bajo en general.\n";
+            departure += "Puntaje Mayor: 0 , Puntaje Menor: 0";
+        }
         toPrint( departure );
     }
     
     
     
-    public static void toPrintImage ( String text, String type, String image )
+    public static void toPrintImage (String text, String type, String image)
     {
-        JOptionPane.showMessageDialog( null, text, type, JOptionPane.INFORMATION_MESSAGE,
-                new ImageIcon(ProjectFinal2.class.getResource( image )));
+        JOptionPane.showMessageDialog( null, text, type, JOptionPane.
+                INFORMATION_MESSAGE,new ImageIcon(ProjectFinal2.class.
+                        getResource( image )));
     }
     
     
     
-    public static String[] readStrings ( String question, int quantity, int position )
+    public static String[] readStrings ( String question, int quantity, 
+                                        int position )
     {
         String strings[];
         
@@ -161,7 +256,8 @@ public class ProjectFinal2 {
     
     
     
-    public static String processStatics ( String[] names, int[] score, String[] games, int money )
+    public static String processStatics ( String[] names, int[] score, 
+                                        String[] games, int money )
     {
         String departure;
         int i;
@@ -175,7 +271,7 @@ public class ProjectFinal2 {
                 departure += "Dinero total: " + money;
                 return departure;
             }
-            departure += i + 1 + "." + names[i] + " Puntaje: " + score[i] + " "
+            departure += i + 1 + "."+names[i] + " Puntaje: " + score[i] + " "
                     + games[i];
             departure += "\n";
             
@@ -189,7 +285,7 @@ public class ProjectFinal2 {
     
     
     
-    public static int[] readIntegers ( int quantity, int position, int score )
+    public static int[] readIntegers (int quantity, int position, int score)
     {
         int number[];
         
@@ -208,7 +304,8 @@ public class ProjectFinal2 {
     
     public static int generateNumber ( int min, int max )
     {
-        int number = ( int ) ( Math.random() * ( min - ( max + 1 )) + ( max + 1 ));
+        int number = ( int ) ( Math.random() * ( min - ( max + 1 )) + 
+                ( max + 1 ));
         
         return number;
     
@@ -254,8 +351,8 @@ public class ProjectFinal2 {
                 break;
             default:
                 score = 0;
-                toPrintImage( "Has fallado has dado fuera del blanco\n        "
-                        + "Tu puntaje es de: " + score, text, "7.jpg" );
+                toPrintImage( "Has fallado has dado fuera del blanco\n      "
+                        + "  Tu puntaje es de: " + score, text, "7.jpg" );
                 break;
         }
     }
@@ -368,10 +465,11 @@ public class ProjectFinal2 {
     {
         String menu, names[], games[], name, statics;
         int option, i, j, p, score, scoreFinal[], sum, target, score0[];
-        int money, score1[], score2[], score3[], score4[], score5[], score6[];
+        int money, score1[], score2[], score3[], score4[], score5[], 
+                score6[];
         int score7[], score8[], score9[],a, targets[], max, min;
-        String[] target1, target2, target3, target4, target5, target6, target7, 
-                target8, target9, target10, scoreFinalT;
+        String[] target1, target2, target3, target4, target5, target6, 
+                target7,target8, target9, target10, scoreFinalT;
         
         menu = "Seleccione la opcion que deseea ejecutar.\n\n";
         menu += "Presione 1. Para Jugar.\n";
@@ -437,7 +535,7 @@ public class ProjectFinal2 {
                 name = readString( "Nombre" );
                 do
                 {
-                target = readInt( "Blancos disponibles [1 - 10] del 1 al 10 " );
+                target=readInt("Blancos disponibles [1 - 10] del 1 al 10 ");
                 }while ( target < 1 || target > 10 );
                 money+=15000;
                 targets[ target - 1 ] += 1;
@@ -459,17 +557,17 @@ public class ProjectFinal2 {
                     {
                         
                         scoreFinal[j] = score;
-                        games[j] = processGameOver( names[j] , scoreFinal[j] );
+                        games[j] = processGameOver(names[j] ,scoreFinal[j]);
                         if(max<scoreFinal[j])
                         {
                             max = scoreFinal[j];
-                            scoreFinalT[0]= "Nombre: " + names[j] + ", puntaje "
+                            scoreFinalT[0]= "Nombre: "+names[j]+", puntaje "
                                     + "mayor: " + max + "\n";
                         }
                         if(min>scoreFinal[j])
                         {
                             min = scoreFinal[j];
-                            scoreFinalT[1]= "Nombre: " + names[j] + ", puntaje "
+                            scoreFinalT[1]= "Nombre: "+names[j]+", puntaje "
                                     + "minimo: " + min;
                         }
                         i = 1;
@@ -480,14 +578,14 @@ public class ProjectFinal2 {
                             if(scoreFinal[j] > score0[0])
                             {
                                 score0[0] = scoreFinal[j];
-                                target1[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score0[0] + "\n";
+                                target1[0] = "Nombre: "+names[j]+", Puntaje"
+                                        + " mayor: " + score0[0] + "\n";
                             }
                             if( scoreFinal[j] < score0[1] )
                             {
                                 score0[1] = scoreFinal[j];
-                                target1[1] = "Nombre: " + names[j] + ", Puntaje Menor: "
-                                        + score0[1];
+                                target1[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje Menor: " + score0[1];
                             }
                                 
                             break;
@@ -496,14 +594,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score1[0] )
                             {
                                 score1[0] = scoreFinal[j];
-                                target2[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score1[0] + "\n";
+                                target2[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score1[0]+"\n";
                             }
                             if( scoreFinal[j] < score1[1] )
                             {
                                 score1[1] = scoreFinal[j];
-                                target2[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score1[1];
+                                target2[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score1[1];
                             }
                             break;
                             
@@ -511,42 +609,42 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score2[0] )
                             {
                                 score2[0] = scoreFinal[j];
-                                target3[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score2[0] + "\n";
+                                target3[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score2[0]+"\n";
                             }
                             if( scoreFinal[j] < score2[1] )
                             {
                                 score2[1] = scoreFinal[j];
-                                target3[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score2[1];
+                                target3[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: "+ score2[1];
                             }
                             break;
                             case 3: a = scoreFinal[j];
                             if( scoreFinal[j] > score3[0] )
                             {
                                 score3[0] = scoreFinal[j];
-                                target4[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score3[0] + "\n";
+                                target4[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score3[0]+"\n";
                             }
                             if( scoreFinal[j] < score3[1] )
                             {
                                 score3[1] = scoreFinal[j];
-                                target4[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score3[1];
+                                target4[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score3[1];
                             }
                             break;
                             case 4: a = scoreFinal[j];
                             if( scoreFinal[j] > score4[0] )
                             {
                                 score4[0] = scoreFinal[j];
-                                target5[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score4[0] + "\n";
+                                target5[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score4[0]+"\n";
                             }
                             if( scoreFinal[j] < score4[1] )
                             {
                                 score4[1] = scoreFinal[j];
-                                target5[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score4[1];
+                                target5[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score4[1];
                             }
                             break;
                             
@@ -554,14 +652,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score5[0] )
                             {
                                 score5[0] = scoreFinal[j];
-                                target6[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score5[0] + "\n";
+                                target6[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score5[0]+"\n";
                             }
                             if( scoreFinal[j] < score5[1] )
                             {
                                 score5[1] = scoreFinal[j];
-                                target6[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score5[1];
+                                target6[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score5[1];
                             }
                             break;
                             
@@ -569,14 +667,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score6[0] )
                             {
                                 score6[0] = scoreFinal[j];
-                                target7[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score6[0] + "\n";
+                                target7[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score6[0]+"\n";
                             }
                             if( scoreFinal[j] < score6[1] )
                             {
                                 score6[1] = scoreFinal[j];
-                                target7[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score6[1];
+                                target7[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score6[1];
                             }
                             break;
                             
@@ -584,14 +682,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score7[0] )
                             {
                                 score7[0] = scoreFinal[j];
-                                target8[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score7[0] + "\n";
+                                target8[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score7[0]+"\n";
                             }
                             if( scoreFinal[j] < score7[1] )
                             {
                                 score7[1] = scoreFinal[j];
-                                target8[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score7[1];
+                                target8[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score7[1];
                             }
                             break;
                             
@@ -599,14 +697,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score8[0] )
                             {
                                 score8[0] = scoreFinal[j];
-                                target9[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score8[0] + "\n";
+                                target9[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score8[0]+"\n";
                             }
                             if( scoreFinal[j] < score8[1] )
                             {
                                 score8[1] = scoreFinal[j];
-                                target9[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score8[1];
+                                target9[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score8[1];
                             }
                             break;
                             
@@ -614,14 +712,14 @@ public class ProjectFinal2 {
                             if( scoreFinal[j] > score9[0] )
                             {
                                 score9[0] = scoreFinal[j];
-                                target10[0] = "Nombre: " + names[j] + ", Puntaje mayor: "
-                                        + score9[0] + "\n";
+                                target10[0] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje mayor: "+score9[0]+"\n";
                             }
                             if( scoreFinal[j] < score9[1] )
                             {
                                 score9[1] = scoreFinal[j];
-                                target10[1] = "Nombre: " + names[j] + ", Puntaje menor: "
-                                        + score9[1];
+                                target10[1] = "Nombre: " + names[j] + ", "
+                                        + "Puntaje menor: " + score9[1];
                             }
                             break;
                             
@@ -633,8 +731,9 @@ public class ProjectFinal2 {
                         do
                         {
                         option = readInt("Que desea hacer a continuacion\n\n"
-                                + "1. Volver a comenzar.\n2. Retirase en el juego.\n"
-                                + "3. Ver estadisticas.\n4. salir de la aplicacion.");
+                             + "1. Volver a comenzar.\n2. Retirase en el "
+                             + "juego.\n3. Ver estadisticas.\n4. salir de la"
+                             + " aplicacion.");
                         if( option == 1 )
                         {
                             money+=15000;
@@ -644,7 +743,8 @@ public class ProjectFinal2 {
                         }
                         if( option == 3 )
                         {
-                            statics = processStatics( names, scoreFinal, games, money );
+                            statics = processStatics(names,scoreFinal,games, 
+                                    money );
                             toPrint( statics );
                             toPrintIntegers( targets,target1,target2,target3,
                                     target4,target5,target6,target7,target8,
@@ -658,16 +758,16 @@ public class ProjectFinal2 {
                 
                 case 2:
                     
-                    toPrint( "El puntaje acumulado en esta partida es de: " + 
+                    toPrint( "El puntaje acumulado en esta partida es de: "+ 
                             score );
                     break;
                 
                 case 3:
-                    statics = processStatics( names, scoreFinal, games, money );
+                    statics = processStatics(names,scoreFinal,games,money);
                     toPrint( statics );
                     toPrintIntegers( targets,target1,target2,target3,
-                                    target4,target5,target6,target7,target8,
-                                    target9,target10,scoreFinalT);
+                                   target4,target5,target6,target7,target8,
+                                   target9,target10,scoreFinalT);
                     break;
                 
                 case 4: 
