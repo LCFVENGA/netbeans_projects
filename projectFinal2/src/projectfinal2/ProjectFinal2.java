@@ -63,7 +63,7 @@ public class ProjectFinal2 {
             String[]score9,String[] scoreFinalT )
     {
         String departure;
-        int i,j=0;
+        int i,j=0,sum=0,k;
         
         departure = "Numero de veces escojido un blanco para jugar.\n\n";
         
@@ -72,11 +72,13 @@ public class ProjectFinal2 {
             departure +=  ( i + 1 ) + ". " + array[i];
             if( array[i] == 1 )
             {
-                departure += " vez.\n";
+                departure += " vez. Dinero total: "+( array[i]* 15000 )
+                        +"\n";
             }
             else
             {
-                departure += " veces.\n";
+                departure += " veces. Dinero total: "+
+                        ( array[i]* 15000 )+"\n";
             }
             switch(j)
             {
@@ -212,16 +214,24 @@ public class ProjectFinal2 {
            
             
         }
+        for(k=0; k<array.length; k++ )
+            {
+                sum+= array[k];
+            }
         if( scoreFinalT[0] != null )
         {
             departure += "\nEl puntaje mas alto y mas bajo en general.\n";
             departure += scoreFinalT[0];
             departure += scoreFinalT[1];
+            departure += "\nTotal de jugadores en todo el club es de: " +
+                    sum + "\nEl dinero total recaudado es: " + (sum * 15000);
         }
         else
         {
             departure += "\nEl puntaje mas alto y mas bajo en general.\n";
             departure += "Puntaje Mayor: 0 , Puntaje Menor: 0";
+            departure += "\nTotal de jugadores en todo el club es de: " +
+                    sum + "\nEl dinero total recaudado es: " + (sum * 15000);
         }
         toPrint( departure );
     }
@@ -425,41 +435,7 @@ public class ProjectFinal2 {
         return score;
     }
     
-    
-    
-    public static int[] burbuja ( int integers[] )            
-
-    {
-        
-
-        for( int i = 0; i < integers.length - 1; i++ )
-
-        {
-
-            for( int j = 0; j < integers.length - 1; j++ )
-
-            {
-
-                if ( integers[j] < integers[j + 1] )
-
-                {
-
-                    int tmp = integers[j + 1];
-
-                    integers [j+1] = integers[j];
-                    integers[j] = tmp;
-
-                }
-
-            }
-
-        }
-
-        return integers;
-
-    }
-    
-    
+   
     
     public static void processMenu ()
     {
@@ -750,7 +726,11 @@ public class ProjectFinal2 {
                                     target4,target5,target6,target7,target8,
                                     target9,target10,scoreFinalT);
                         }
-                        }while( option == 3 );
+                        if ( option > 4 )
+                        {
+                            toPrint("Opcion Invalida.");
+                        }
+                        }while( option == 3 || option > 4 );
                         
                     }
                     
