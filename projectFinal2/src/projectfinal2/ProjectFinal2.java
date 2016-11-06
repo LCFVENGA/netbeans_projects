@@ -169,8 +169,14 @@ public class ProjectFinal2 {
                     {
                         departure += score3[0];
                         departure += score3[1] + "\n";
-                        break;
+                        
                     }   
+                    else
+                    {
+                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
+                                + "\n";
+                    }
+                        break;
                 case 4: 
                     if( score4[0] != null )
                     {
