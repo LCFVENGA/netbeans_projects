@@ -6,6 +6,9 @@ import javax.swing.*;
  * Este juego es un programa donde el jugador prueba su suerte al intentar
  * obtener el mayor puntaje posible haciendo lanzamientos de flechas hacia el
  * blanco con sus respectivas divisiones y puntuaciones especificas.
+ * En estaa version contamos con 10 blancos distintos con sus respectivos
+ * puntajes mostrando el mas alto y el mas bajo de estos asi mismo lo hacemos
+ * en general, ademas por cada partida obtendremos una ganancia de 15000
  *
  * Institucion: Univerdad del Quindio. 
  * Facultad de ingenieria. 
@@ -15,13 +18,17 @@ import javax.swing.*;
  * Profesor: Julian Esteban Gutierrez Posada.
  *
  * @author Carabali Rivera Juan Pablo.
- * @author 
+ * @author Moral Londoño Yael Sebastian.                           
  * 
  */
 public class ProjectFinal2 {
 
     
-    
+    /**
+     * Metodo para leer un entero 
+     * @param question es la pregunta que se le hace al jugador
+     * @return es el numero que ingresa el jugador como respuesta
+     */
     public static int readInt( String question )
     {
         while ( true )
@@ -40,7 +47,10 @@ public class ProjectFinal2 {
     
     
     
-    
+    /**
+     * Metodo para imprimir un texto.
+     * @param text es el texto que se va imprimir.
+     */
     public static void toPrint ( String text )
     {
         JOptionPane.showMessageDialog( null, text );
@@ -49,18 +59,49 @@ public class ProjectFinal2 {
     
     
     
-    
+    /**
+     * Metodo para leer un texto.
+     * @param question es la pregunta que se le hace al usuario.
+     * @return nos retorna el texto que el jugador da como respuesta.
+     */
     public static String readString ( String question )
     {
         return JOptionPane.showInputDialog ( question );
     }
     
     
-    
+    /**
+     * Metodo para imprimir un arreglo de numeros
+     * @param array 
+     * @param score0 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°1.
+     * @param score1 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°2.
+     * @param score2 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°3.
+     * @param score3 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°4.
+     * @param score4 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°5.
+     * @param score5 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°6.
+     * @param score6 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°7.
+     * @param score7 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°8.
+     * @param score8 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°9.
+     * @param score9 en este se encuentran el puntaje mas alto y mas
+     *               bajo de el blaco N°10.
+     * @param scoreFinalT en este se encuentran el puntaje mas alto y mas
+     *               bajo del club en general.
+     * @param goodGames son las personas por blanco que obtuvieron buena 
+     *                  partida superando los 600 puntos.
+     */
     public static void toPrintIntegers ( int[]array,String[]score0,
             String[]score1,String[]score2,String[]score3,String[]score4,
             String[]score5,String[]score6,String[]score7,String[]score8,
-            String[]score9,String[] scoreFinalT )
+            String[]score9,String[] scoreFinalT,int[] goodGames )
     {
         String departure;
         int i,j=0,sum=0,k;
@@ -73,12 +114,14 @@ public class ProjectFinal2 {
             if( array[i] == 1 )
             {
                 departure += " vez. Dinero total: "+( array[i]* 15000 )
-                        +"\n";
+                        +", "+goodGames[i]+" jugadores tuvieron una "
+                        + "buena partida."+"\n";
             }
             else
             {
                 departure += " veces. Dinero total: "+
-                        ( array[i]* 15000 )+"\n";
+                        ( array[i]* 15000 )+", "+goodGames[i]+" jugadores "
+                        + "tuvieron una buena partida."+"\n";
             }
             switch(j)
             {
@@ -237,7 +280,13 @@ public class ProjectFinal2 {
     }
     
     
-    
+    /**
+     * Metodo para imprimir una imagen.
+     * @param text es el texto que se mostrara en la imagen.
+     * @param type es el texto que aparece en la barra superior de la
+     *             ventana que sale con la imagen.
+     * @param image es la imagen que vamos a mostrar.
+     */
     public static void toPrintImage (String text, String type, String image)
     {
         JOptionPane.showMessageDialog( null, text, type, JOptionPane.
@@ -247,38 +296,30 @@ public class ProjectFinal2 {
     
     
     
-    public static String[] readStrings ( String question, int quantity, 
-                                        int position )
-    {
-        String strings[];
-        
-        
-        strings = new String[ quantity ];
-        
-        while( position < quantity )
-        {
-            strings[ position ] = readString ( question );
-        }
-        
-        return strings;
-        
-    }
-    
-    
-    
+    /**
+     * Metodo para procesar la tabla de puntajes de todos los jugadores
+     *        que han jugado en el club
+     * @param names es el nombre del jugador
+     * @param score es el puntaje del jugador
+     * @param games es donde se encuentra de como le fue al jugador al 
+     *              terminar la partida bien, mal o normal.
+     * @param money es el dinero que recauda el club por cada jugador o 
+     *              cada partida para ser mas especificos.
+     * @return nos retorna una cadena de de textos con todos los datos
+     *         dados.
+     */
     public static String processStatics ( String[] names, int[] score, 
                                         String[] games, int money )
     {
         String departure;
         int i;
         
-        departure = "";
+        departure = "   Puntajes de los jugadores.\n\n";
         
         for( i = 0; i < names.length; i++ )
         {
             if( names[i] == null )
             {
-                departure += "Dinero total: " + money;
                 return departure;
             }
             departure += i + 1 + "."+names[i] + " Puntaje: " + score[i] + " "
@@ -294,24 +335,13 @@ public class ProjectFinal2 {
     }
     
     
-    
-    public static int[] readIntegers (int quantity, int position, int score)
-    {
-        int number[];
-        
-        number = new int[ quantity ];
-        
-        while( position < quantity )
-        {
-            number[ position ] = score;
-        }
-        
-        return number;
-        
-    }
-    
-    
-    
+ 
+    /**
+     * Metodo para generar un numero aleatorio entre un rango dado.
+     * @param min es el numero menor del rango dado.
+     * @param max es el numero mayor del rango dado.
+     * @return nos retorna un numero entre el rango dado.
+     */
     public static int generateNumber ( int min, int max )
     {
         int number = ( int ) ( Math.random() * ( min - ( max + 1 )) + 
@@ -322,7 +352,12 @@ public class ProjectFinal2 {
     }
     
     
-    
+    /**
+     * Metodo para procesar el tiro e identificar la imagen y en donde a 
+     * caido el tiro ejecutado.
+     * @param threw este es el lugar en donde cae el lanzamiento.
+     * @param text es el texto que sale en la barra de la venta superior.
+     */
     public static void processThrew ( int threw, String text )
     {
         int score;
@@ -368,7 +403,13 @@ public class ProjectFinal2 {
     }
     
     
-    
+    /**
+     * Metodo para ejecutar o avisar al jugador que a terminado la partida
+     * @param name nombre del jugador.
+     * @param scoreFinal es el puntaje total que saco el jugador en la
+     *                   partida
+     * @return retorna el resultado de la partida.
+     */
     public static String processGameOver ( String name, int scoreFinal )
     {
         String game;
@@ -397,7 +438,11 @@ public class ProjectFinal2 {
     }
     
     
-    
+    /**
+     * Merodo para saber cuanto saco de puntaje en el tiro indicado.
+     * @param i es el tiro o lanzamieto qu se va a ejecutar a continuacion.
+     * @return devuelve el putaje que saco el jugaodor en ese tiro
+     */
     public static int processGame ( int i )
     {
         int  threw, score;
@@ -436,13 +481,17 @@ public class ProjectFinal2 {
     }
     
    
-    
+    /**
+     * Metodo por el cual me va a procesar el menu ademas tambien tiene 
+     * otras operaciones internas que van a ayudar al juego el conteo
+     * de jugadores puntaje entre otros.
+     */
     public static void processMenu ()
     {
         String menu, names[], games[], name, statics;
         int option, i, j, p, score, scoreFinal[], sum, target, score0[];
         int money, score1[], score2[], score3[], score4[], score5[], 
-                score6[];
+                score6[], goodGames[];
         int score7[], score8[], score9[],a, targets[], max, min;
         String[] target1, target2, target3, target4, target5, target6, 
                 target7,target8, target9, target10, scoreFinalT;
@@ -454,7 +503,6 @@ public class ProjectFinal2 {
         menu += "presione 4. Para Salir.";
         
         
-        a = 0;
         p = 1;
         i = 1;
         j = 0;
@@ -464,6 +512,7 @@ public class ProjectFinal2 {
         max = 0;
         min = 1000;
         
+        goodGames = new int[ 10 ];
         scoreFinalT = new String[ 2 ];
         targets = new int[ 10 ];
         names = new String[ 200 ];
@@ -563,6 +612,10 @@ public class ProjectFinal2 {
                                 target1[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje Menor: " + score0[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[0] = goodGames[0] + 1;
+                            }
                                 
                             break;
                             
@@ -579,6 +632,10 @@ public class ProjectFinal2 {
                                 target2[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score1[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[1] = goodGames[1] + 1;
+                            }
                             break;
                             
                             case 2: a = scoreFinal[j];
@@ -594,6 +651,10 @@ public class ProjectFinal2 {
                                 target3[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: "+ score2[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[2] = goodGames[2] + 1;
+                            }
                             break;
                             case 3: a = scoreFinal[j];
                             if( scoreFinal[j] > score3[0] )
@@ -608,6 +669,10 @@ public class ProjectFinal2 {
                                 target4[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score3[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[3] = goodGames[3] + 1;
+                            }
                             break;
                             case 4: a = scoreFinal[j];
                             if( scoreFinal[j] > score4[0] )
@@ -621,6 +686,10 @@ public class ProjectFinal2 {
                                 score4[1] = scoreFinal[j];
                                 target5[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score4[1];
+                            }
+                            if( a > 600 )
+                            {
+                                goodGames[4] = goodGames[4] + 1;
                             }
                             break;
                             
@@ -637,6 +706,10 @@ public class ProjectFinal2 {
                                 target6[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score5[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[5] = goodGames[5] + 1;
+                            }
                             break;
                             
                             case 6: a = scoreFinal[j];
@@ -651,6 +724,10 @@ public class ProjectFinal2 {
                                 score6[1] = scoreFinal[j];
                                 target7[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score6[1];
+                            }
+                            if( a > 600 )
+                            {
+                                goodGames[6] = goodGames[6] + 1;
                             }
                             break;
                             
@@ -667,6 +744,10 @@ public class ProjectFinal2 {
                                 target8[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score7[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[7] = goodGames[7] + 1;
+                            }
                             break;
                             
                             case 8: a = scoreFinal[j];
@@ -682,6 +763,10 @@ public class ProjectFinal2 {
                                 target9[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score8[1];
                             }
+                            if( a > 600 )
+                            {
+                                goodGames[8] = goodGames[8] + 1;
+                            }
                             break;
                             
                             case 9: a = scoreFinal[j];
@@ -696,6 +781,10 @@ public class ProjectFinal2 {
                                 score9[1] = scoreFinal[j];
                                 target10[1] = "Nombre: " + names[j] + ", "
                                         + "Puntaje menor: " + score9[1];
+                            }
+                            if( a > 600 )
+                            {
+                                goodGames[9] = goodGames[9] + 1;
                             }
                             break;
                             
@@ -724,7 +813,7 @@ public class ProjectFinal2 {
                             toPrint( statics );
                             toPrintIntegers( targets,target1,target2,target3,
                                     target4,target5,target6,target7,target8,
-                                    target9,target10,scoreFinalT);
+                                    target9,target10,scoreFinalT,goodGames);
                         }
                         if ( option > 4 )
                         {
@@ -747,7 +836,7 @@ public class ProjectFinal2 {
                     toPrint( statics );
                     toPrintIntegers( targets,target1,target2,target3,
                                    target4,target5,target6,target7,target8,
-                                   target9,target10,scoreFinalT);
+                                   target9,target10,scoreFinalT,goodGames);
                     break;
                 
                 case 4: 
