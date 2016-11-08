@@ -311,7 +311,7 @@ public class ProjectFinal2 {
      *              terminar la partida bien, mal o normal.
      * @param money es el dinero que recauda el club por cada jugador o 
      *              cada partida para ser mas especificos.
-     * @param j
+     * @param j es la cantidad de jugadores en total en el juego.
      * @return nos retorna una cadena de de textos con todos los datos
      *         dados.
      */
