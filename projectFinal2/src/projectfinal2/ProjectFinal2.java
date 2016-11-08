@@ -107,7 +107,7 @@ public class ProjectFinal2 {
         int i,j=0,sum=0,k;
         
         departure = "Numero de veces escojido un blanco para jugar.\n\n";
-        
+    
         for( i=0; i < array.length; i++ )
         {
             departure +=  ( i + 1 ) + ". " + array[i];
@@ -311,16 +311,19 @@ public class ProjectFinal2 {
      *              terminar la partida bien, mal o normal.
      * @param money es el dinero que recauda el club por cada jugador o 
      *              cada partida para ser mas especificos.
+     * @param j
      * @return nos retorna una cadena de de textos con todos los datos
      *         dados.
      */
     public static String processStatics ( String[] names, int[] score, 
-                                        String[] games, int money )
+                                        String[] games, int money, int j )
     {
         String departure;
         int i;
         
         departure = "   Puntajes de los jugadores.\n\n";
+        departure += "N° de jugadores en total: " + j + "\n";
+        
         
         for( i = 0; i < names.length; i++ )
         {
@@ -328,10 +331,18 @@ public class ProjectFinal2 {
             {
                 return departure;
             }
+            if ( games[i] == null )
+            {
+                departure += i + 1 + "."+names[i] + ": no a terminado la "
+                        + "partida";
+                departure += "\n";
+            }
+            else
+            {
             departure += i + 1 + "."+names[i] + " Puntaje: " + score[i] + " "
                     + games[i];
             departure += "\n";
-            
+            }            
         }
         
         
@@ -497,7 +508,7 @@ public class ProjectFinal2 {
         String menu, names[], games[], name, statics;
         int option, i, j, p, score, scoreFinal[], sum, target, score0[];
         int money, score1[], score2[], score3[], score4[], score5[], 
-                score6[], goodGames[];
+                score6[], goodGames[], k;
         int score7[], score8[], score9[],a, targets[], max, min;
         String[] target1, target2, target3, target4, target5, target6, 
                 target7,target8, target9, target10, scoreFinalT;
@@ -512,6 +523,7 @@ public class ProjectFinal2 {
         p = 1;
         i = 1;
         j = 0;
+        k=0;
         score = 0;
         target = 0;
         money = 0;
@@ -572,6 +584,7 @@ public class ProjectFinal2 {
                 targets[ target - 1 ] += 1;
                 names[j] = name;
                 p++;
+                k++;
                
             }
             option = readInt ( menu );
@@ -811,11 +824,12 @@ public class ProjectFinal2 {
                             names[j]=names[j-1];
                             targets[target - 1] += 1; 
                             p++;
+                            k++;
                         }
                         if( option == 3 )
                         {
                             statics = processStatics(names,scoreFinal,games, 
-                                    money );
+                                    money, k );
                             toPrint( statics );
                             toPrintIntegers( targets,target1,target2,target3,
                                     target4,target5,target6,target7,target8,
@@ -838,7 +852,7 @@ public class ProjectFinal2 {
                     break;
                 
                 case 3:
-                    statics = processStatics(names,scoreFinal,games,money);
+                    statics = processStatics(names,scoreFinal,games,money,k);
                     toPrint( statics );
                     toPrintIntegers( targets,target1,target2,target3,
                                    target4,target5,target6,target7,target8,
