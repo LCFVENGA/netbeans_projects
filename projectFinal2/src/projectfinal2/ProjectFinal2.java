@@ -110,18 +110,15 @@ public class ProjectFinal2 {
     
         for( i=0; i < array.length; i++ )
         {
-            departure +=  ( i + 1 ) + ". " + array[i];
+            if( array[i] == 1 )
+            {
+            departure +="Blanco N°" + ( i + 1 ) + ": " + array[i];
             if( array[i] == 1 )
             {
                 departure += " vez. Dinero total: "+( array[i]* 15000 )
                         +", "+goodGames[i]+" jugadores tuvieron una "
                         + "buena partida."+"\n";
             }
-            else
-            {
-                departure += " veces. Dinero total: "+
-                        ( array[i]* 15000 )+", "+goodGames[i]+" jugadores "
-                        + "tuvieron una buena partida."+"\n";
             }
             switch(j)
             {
@@ -131,11 +128,6 @@ public class ProjectFinal2 {
                         departure += score0[0];
                         departure += score0[1] + "\n";
                     }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
-                    }
                         break;
                         
                 case 1: 
@@ -143,11 +135,6 @@ public class ProjectFinal2 {
                     {
                         departure += score1[0];
                         departure += score1[1] + "\n";
-                    }   
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
                     }
                         break;
                 
@@ -157,11 +144,6 @@ public class ProjectFinal2 {
                         departure += score2[0];
                         departure += score2[1] + "\n";
                     }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
-                    }
                         break;
                         
                 case 3: 
@@ -170,11 +152,6 @@ public class ProjectFinal2 {
                         departure += score3[0];
                         departure += score3[1] + "\n";
                         
-                    }   
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
                     }
                         break;
                 case 4: 
@@ -182,11 +159,6 @@ public class ProjectFinal2 {
                     {
                         departure += score4[0];
                         departure += score4[1] + "\n";
-                    }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
                     }
                         break;
                         
@@ -196,11 +168,6 @@ public class ProjectFinal2 {
                         departure += score5[0];
                         departure += score5[1] + "\n";
                     }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
-                    }
                         break;
                         
                 case 6: 
@@ -208,11 +175,6 @@ public class ProjectFinal2 {
                     {
                         departure += score6[0];
                         departure += score6[1] + "\n";
-                    }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
                     }
                         break;
                         
@@ -222,11 +184,6 @@ public class ProjectFinal2 {
                         departure += score7[0];
                         departure += score7[1] + "\n";
                     }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
-                    }
                         break;
                         
                 case 8: 
@@ -235,11 +192,6 @@ public class ProjectFinal2 {
                         departure += score8[0];
                         departure += score8[1] + "\n";
                     }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
-                    }
                         break;
                         
                 case 9: 
@@ -247,11 +199,6 @@ public class ProjectFinal2 {
                     {
                         departure += score9[0];
                         departure += score9[1] + "\n";
-                    }
-                    else
-                    {
-                        departure += "Puntaje Mayor: 0\nPuntaje Menor: 0"
-                                + "\n";
                     }
                         break;
                         
