@@ -1,0 +1,104 @@
+
+import javax.swing.*;
+
+
+/**
+ * programa para mostrar los 3 elementos mas repetidos de un vector siendo su 
+ * tama;o n
+ * @author Jp
+ */
+public class Jaja {
+
+    
+    
+    public static void imp(String texto)
+    {
+        JOptionPane.showMessageDialog(null, texto);
+    }
+    
+    
+    public static void impA( int[][]a)
+    {
+        String tex="";
+        for(int i = 0; i<a.length;i++)
+        {
+            for(int j=0;j<a[0].length;j++)
+            {
+              tex+=a[i][j]+" ";  
+            }
+            tex+="\n";
+        }
+        imp(tex);
+    }
+    
+    public static int leerE (String texto)
+    {
+        while(true)
+        {
+            try
+            {
+              return  Integer.parseInt(JOptionPane.showInputDialog(texto));
+            } 
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog(null,"error","ventana de error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    
+    public static int[][] leerEn(String tex,int n,int m)
+    {
+        int[][]a=new int[n][m];
+        for(int i= 0; i<a.length;i++)
+        {
+            for(int j=0;j<a[0].length;j++)
+            a[i][j]=leerE(tex+i+" , "+ j);
+        }
+        return a;
+    }
+    
+    public static int[][] concaE(int n, int m)
+    {
+        int j,i,con,fin,k,a[][]= new int [n][m];
+        fin=2;
+        k=0;
+        con=2;
+        
+        for(j=0;j<n;j++)
+        {
+            for(i=k;i<fin&&i<m;i++)
+            {
+                a[j][i]=1;
+                k++;
+                
+            }
+            fin+=con;
+            
+            if(i<m&&i<n)
+            {
+            a[j+1][i-1]=1;
+            }
+            con++;
+        }
+        return a;
+    }
+    
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int n, m,a[][];
+        
+        n=leerE("di el numero de filas");
+        m=leerE("di el numero de columnas");
+        
+        a=concaE(n,m);
+        
+        impA(a);
+    }
+    
+}
