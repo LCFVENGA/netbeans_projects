@@ -196,10 +196,10 @@ public class MatrizBotones extends JFrame implements ActionListener
 					if(miVentanaPrincipal.verificarDisponibilidadPuesto(i, j,numeroVehiculo)==true && numeroVehiculo == 0)
 					{
 						
-                                            if("s".equalsIgnoreCase(JOptionPane.showInputDialog(null, "Campo vacio\n Desea Reservar Esta o mas Sillas?. \n (si) o (no)")))
+                                            if("si".equalsIgnoreCase(JOptionPane.showInputDialog(null, "Campo vacio\n Desea Reservar Esta o mas Sillas?. \n (si) o (no)")))
                                             {
-//                                               miReserva = new VentanaReserva(miVentanaPrincipal,i,j,numeroVehiculo,this);//Aun no esta realizada...En Espera.
-//                                               miReserva.setVisible(true);
+                                               miReserva = new VentanaReserva(i,j,numeroVehiculo,miVentanaPrincipal,this);//Aun no esta realizada...En Espera.
+                                               miReserva.setVisible(true);
                                                 
                                              //Usuario miU=new Usuario(JOptionPane.showInputDialog("nombre"),JOptionPane.showInputDialog("id"),Integer.parseInt(JOptionPane.showInputDialog("targeta cinePuntos")));
                                              //miVentanaPrincipal.reservarSillas(miU, Integer.parseInt(JOptionPane.showInputDialog("cantidad")), i, j, numeroSala, JOptionPane.showInputDialog("direccion"));
@@ -213,7 +213,7 @@ public class MatrizBotones extends JFrame implements ActionListener
 					}
                                         else if(numeroVehiculo==0)
                                         {
-                                            if("s".equalsIgnoreCase(JOptionPane.showInputDialog("Este puesto se encuentra Ocupado.Desea Eliminar esta reservao mas a su nombre?\ns(si) n(no)")))
+                                            if("si".equalsIgnoreCase(JOptionPane.showInputDialog("Este puesto se encuentra Ocupado.Desea Eliminar esta reservao mas a su nombre?\ns(si) n(no)")))
                                             {
                                              //   if(miVentanaPrincipal.devolverPuestoSala(i,j,numeroSala).getMiUsuario().getId().equals(JOptionPane.showInputDialog("ingrese el id del ciente a eliminar si va a eliminar mas de una reserva.")))
                                                //         {
@@ -227,10 +227,10 @@ public class MatrizBotones extends JFrame implements ActionListener
 					
 					if(miVentanaPrincipal.verificarDisponibilidadPuesto(i, j,numeroVehiculo)==true && numeroVehiculo == 1)
 					{
-                                            if("s".equalsIgnoreCase(JOptionPane.showInputDialog(null, "Campo vacio\n Desea Reservar Esta Silla. \n (si) o (no)")))
+                                            if("si".equalsIgnoreCase(JOptionPane.showInputDialog(null, "Campo vacio\n Desea Reservar Esta Silla. \n (si) o (no)")))
                                             {
-                                            	// miReserva = new VentanaReserva(miVentanaPrincipal,i,j,numeroSala);
-                                                //miReserva.setVisible(true);
+                                            	miReserva = new VentanaReserva(i,j,numeroVehiculo,miVentanaPrincipal,this);//Aun no esta realizada...En Espera.
+                                                miReserva.setVisible(true);
                                                 
                                                Pasajero miP=new Pasajero(JOptionPane.showInputDialog("id"),null,Integer.parseInt(JOptionPane.showInputDialog("edad")));
                                                 try {

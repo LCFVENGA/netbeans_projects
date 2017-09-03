@@ -41,6 +41,7 @@ public class ReservaVuelo extends JFrame implements ActionListener {
 //		btnAvion.setBounds(177, 85, 89, 23);
 //		btnAvion.addActionListener(this);
 //		contentPane.add(btnAvion);
+		setTitle("Aviones Disponibles");
 		setBounds(100, 100, 450, 300);
 		panelSuperior();
 		panelCentral();

@@ -53,6 +53,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		setTitle("Ventana Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -149,6 +150,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 			reserVu.setVisible(true);
 		}
 		
+	}
+	
+	public int buscarPasajero(Pasajero mip)
+	{
+		return miAero.buscarPasajero(mip);
 	}
 
 	public void impriPer(Pasajero misPersonas) {
