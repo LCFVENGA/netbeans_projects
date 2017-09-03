@@ -33,7 +33,7 @@ public class Vehiculo {
 			
 			for (int j = 0; j < misSillas[0].length; j++) {
 				
-				if(j!=2||j!=3||j!=4)
+				if(j!=2&&j!=3&&j!=4)
 				{
 					if(j==1||j==5)
 					{

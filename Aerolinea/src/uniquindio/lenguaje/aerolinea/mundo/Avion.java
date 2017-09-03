@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Avion extends Vehiculo
 {
-	private Silla[][] misSillasA=new Silla[11][7];
+	private Silla[][] misSillasA=new Silla[12][7];
 	private String idAvion="Avion ";
 	public Avion(Piloto miPiloto, String id) {
 		super(miPiloto, id);
@@ -15,9 +15,9 @@ public class Avion extends Vehiculo
 	public void generarSillas()
 	{
 
-		int cod=9;
+		int cod=3;
 		
-		for(int i=0;i<11;i++)
+		for(int i=0;i<12;i++)
 		{
 			
 				for (int j = 0; j < 7; j++) 
@@ -45,7 +45,7 @@ public class Avion extends Vehiculo
 						}
 						else
 						{
-							misSillasA[i][j]=new Silla(-11,null,null);
+							misSillasA[i][j]=new Silla(-1,null,null);
 						}
 					}
 					else if(i<2)

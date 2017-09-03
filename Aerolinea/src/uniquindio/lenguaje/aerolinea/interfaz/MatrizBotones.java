@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import uniquindio.lenguaje.aerolinea.mundo.Pasajero;
+import uniquindio.lenguaje.aerolinea.mundo.UsuarioInexistenteException;
+
 
 
 public class MatrizBotones extends JFrame implements ActionListener
@@ -24,21 +27,22 @@ public class MatrizBotones extends JFrame implements ActionListener
 	private JButton  regresar;
 	private int tamanio1, tamanio2, preferenciales;
 	private VentanaPrincipal miVentanaPrincipal;
-//	private SeleccionaAvion miSeleccionarAvion;
+	private ReservaVuelo miSeleccionarAvion;
 	private VentanaReserva miReserva;
 	private String idAvion;
 
 	private int numeroVehiculo;
 
 	
-	public MatrizBotones(int tamanio1,int tamanio2, VentanaPrincipal miVentanaPrincipal, int numeroSala, String idAvion)
+	public MatrizBotones(int tamanio1,int tamanio2, VentanaPrincipal miVentanaPrincipal, int numeroSala, String idAvion, ReservaVuelo miSeleccionarAvion)
 	{
 		this.idAvion=idAvion;
 		this.tamanio1=tamanio1;
 		this.tamanio2=tamanio2;
 		this.numeroVehiculo = numeroSala;
+		this.miSeleccionarAvion = miSeleccionarAvion;
 		this.miVentanaPrincipal=miVentanaPrincipal;
-		
+		setBounds(100, 100, 450, 300);
 		panelSuperior();
 		panelCentral();
 		panelInferior();
@@ -51,7 +55,7 @@ public class MatrizBotones extends JFrame implements ActionListener
 	{
 		contenedorSuperior=new JPanel();
 	
-		titulo=new JLabel(idAvion);//miVentanaPrincipal.getAvion(idAvion).getIdAvion());
+		titulo=new JLabel("Avion "+idAvion);//miVentanaPrincipal.getAvion(idAvion).getIdAvion());
 		
 		contenedorSuperior.add(titulo);
 		
@@ -73,22 +77,33 @@ public class MatrizBotones extends JFrame implements ActionListener
 		{
 			for(int j=0; j<tamanio2; j++)
 			{
-				int tipo=miVentanaPrincipal.devolverSilla(miVentanaPrincipal.getAvion(numeroVehiculo),i,j ).getTipo();
-				
-				matrizBotones[i][j]=new JButton(""+miVentanaPrincipal.devolverSilla(miVentanaPrincipal.getAvion(numeroVehiculo),i,j ).getCodPuesto());
-				if(tipo==0){
-				matrizBotones[i][j].setBackground(Color.yellow);
-				}
-				else if(tipo==1){
-					matrizBotones[i][j].setBackground(Color.gray);
+
+				if(i<2||i>4)
+				{
+					int tipo=miVentanaPrincipal.devolverSilla(numeroVehiculo,i,j ).getTipo();
+					matrizBotones[i][j]=new JButton(""+miVentanaPrincipal.devolverSilla(numeroVehiculo,i,j ).getCodPuesto());
+					if(tipo==0){
+						matrizBotones[i][j].setBackground(Color.yellow);
+						this.matrizBotones[i][j].addActionListener(this);
+					}
+					else if(tipo==1){
+						matrizBotones[i][j].setBackground(Color.gray);
+						this.matrizBotones[i][j].addActionListener(this);
+					}
+					else
+					{
+						matrizBotones[i][j]=new JButton();
+						matrizBotones[i][j].setBackground(Color.white);
+					}
+					
+					contenedorCentral.add(matrizBotones[i][j]);
 				}
 				else
 				{
+					matrizBotones[i][j]=new JButton();
 					matrizBotones[i][j].setBackground(Color.white);
+					contenedorCentral.add(matrizBotones[i][j]);
 				}
-				this.matrizBotones[i][j].addActionListener(this);
-				contenedorCentral.add(matrizBotones[i][j]);
-				
 			}
 		}
 		
@@ -100,7 +115,7 @@ public class MatrizBotones extends JFrame implements ActionListener
 		contenedorInferior=new JPanel();
 		
 		regresar=new JButton("Regresar");
-		this.regresar.addActionListener(this);
+		regresar.addActionListener(this);
 		
 		contenedorInferior.add(regresar);
 		
@@ -168,7 +183,10 @@ public class MatrizBotones extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-            
+		if(e.getSource()==regresar){
+			miSeleccionarAvion.setVisible(true);
+			dispose();
+		}  
 		for(int i=0; i<tamanio1; i++)
 		{
 			for(int j=0; j<tamanio2; j++)
@@ -180,8 +198,8 @@ public class MatrizBotones extends JFrame implements ActionListener
 						
                                             if("s".equalsIgnoreCase(JOptionPane.showInputDialog(null, "Campo vacio\n Desea Reservar Esta o mas Sillas?. \n (si) o (no)")))
                                             {
-                                               miReserva = new VentanaReserva(miVentanaPrincipal,i,j,numeroVehiculo,this);
-                                               miReserva.setVisible(true);
+//                                               miReserva = new VentanaReserva(miVentanaPrincipal,i,j,numeroVehiculo,this);//Aun no esta realizada...En Espera.
+//                                               miReserva.setVisible(true);
                                                 
                                              //Usuario miU=new Usuario(JOptionPane.showInputDialog("nombre"),JOptionPane.showInputDialog("id"),Integer.parseInt(JOptionPane.showInputDialog("targeta cinePuntos")));
                                              //miVentanaPrincipal.reservarSillas(miU, Integer.parseInt(JOptionPane.showInputDialog("cantidad")), i, j, numeroSala, JOptionPane.showInputDialog("direccion"));
@@ -199,8 +217,8 @@ public class MatrizBotones extends JFrame implements ActionListener
                                             {
                                              //   if(miVentanaPrincipal.devolverPuestoSala(i,j,numeroSala).getMiUsuario().getId().equals(JOptionPane.showInputDialog("ingrese el id del ciente a eliminar si va a eliminar mas de una reserva.")))
                                                //         {
-                                                            miVentanaPrincipal.eliminarUsuario(i, j, numeroVehiculo,miVentanaPrincipal.devolverPuestoSala(i,j,numeroVehiculo).getMiUsuario() );
-                                                        despintarCasilas(i, j, numeroVehiculo, preferenciales);
+                                                        //   por el momento no// miVentanaPrincipal.eliminarUsuario(i, j, numeroVehiculo,miVentanaPrincipal.devolverPuestoSala(i,j,numeroVehiculo).getMiUsuario() );
+                                                        //despintarCasillas(i, j, numeroVehiculo, preferenciales);
                                                         
                                                  //       }
                                                 
@@ -214,8 +232,14 @@ public class MatrizBotones extends JFrame implements ActionListener
                                             	// miReserva = new VentanaReserva(miVentanaPrincipal,i,j,numeroSala);
                                                 //miReserva.setVisible(true);
                                                 
-                                               Usuario miU=new Usuario(JOptionPane.showInputDialog("nombre"),JOptionPane.showInputDialog("id"),Integer.parseInt(JOptionPane.showInputDialog("targeta cinePuntos")));
-                                                miVentanaPrincipal.reservarSillas(miU, Integer.parseInt(JOptionPane.showInputDialog("cantidad")), i, j, numeroVehiculo, JOptionPane.showInputDialog("direccion"));
+                                               Pasajero miP=new Pasajero(JOptionPane.showInputDialog("id"),null,Integer.parseInt(JOptionPane.showInputDialog("edad")));
+                                                try {
+													miVentanaPrincipal.reservarSillas(miP,  i, j, numeroVehiculo);
+												} catch (UsuarioInexistenteException e1) {
+													// TODO Auto-generated catch block
+													e1.printStackTrace();
+													JOptionPane.showMessageDialog(null, e1.getMessage());
+												}
                                                //miVentanaPrincipal.agregarCliente(miU);
                                                 pintarCasillas();
                                             }
@@ -225,10 +249,10 @@ public class MatrizBotones extends JFrame implements ActionListener
 					{
                                             if("s".equalsIgnoreCase(JOptionPane.showInputDialog("Este puesto se encuentra Ocupado.Desea Eliminar esta reserva?\ns(si) n(no)")))
                                             {
-                                            	 if(miVentanaPrincipal.devolverPuestoSala(i,j,numeroVehiculo).getMiUsuario().getId().equals(JOptionPane.showInputDialog("ingrese el id del ciente a eliminar si va a eliminar mas de una reserva.")))
+//                                            	 if(miVentanaPrincipal.devolverSilla(i,j,numeroVehiculo).getMisPersonas().getId().equals(JOptionPane.showInputDialog("ingrese el id del ciente a eliminar si va a eliminar mas de una reserva.")))
                                                  {
-                                                     miVentanaPrincipal.eliminarUsuario(i, j, numeroVehiculo,miVentanaPrincipal.devolverPuestoSala(i,j,numeroVehiculo).getMiUsuario() );
-                                                 despintarCasilas(i, j, numeroVehiculo, preferenciales);
+//                                                     miVentanaPrincipal.eliminarUsuario(i, j, numeroVehiculo,miVentanaPrincipal.devolverSilla(i,j,numeroVehiculo).getMiUsuario() );
+                                                // despintarCasillas(i, j, numeroVehiculo, preferenciales);
                                                  
                                                  }
                                             }
@@ -247,10 +271,7 @@ public class MatrizBotones extends JFrame implements ActionListener
 		
 			
 		
-		if(e.getSource()==regresar){
-			miSeleccionarAvion = new SeleccionaAvion(miVentanaPrincipal, tamanio1, tamanio2, preferenciales);
-			miSeleccionarAvion.setVisible(true);
-		}
+		
 		/*if(e.getSource()==agregarUsuario){
 			
 			miAgregarUsuario =new  AgregarUsuario();

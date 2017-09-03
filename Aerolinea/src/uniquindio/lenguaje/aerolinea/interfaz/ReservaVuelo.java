@@ -41,6 +41,7 @@ public class ReservaVuelo extends JFrame implements ActionListener {
 //		btnAvion.setBounds(177, 85, 89, 23);
 //		btnAvion.addActionListener(this);
 //		contentPane.add(btnAvion);
+		setBounds(100, 100, 450, 300);
 		panelSuperior();
 		panelCentral();
 		panelInferior();
@@ -97,11 +98,9 @@ public class ReservaVuelo extends JFrame implements ActionListener {
 		{
 			if(e.getSource()==vectorBotones[i])
 			{
-				System.out.println(miVP.getAvion(i).getMisSillasA().length);
-				System.out.println(miVP.getAvion(i).getMisSillasA()[0].length);
-				System.out.println("Avion"+miVP.devolverVehiculos(i).getId());
-				miMa=new MatrizBotones(miVP.getAvion(i).getMisSillasA().length,miVP.getAvion(i).getMisSillasA()[0].length, miVP, i,"Avion"+miVP.devolverVehiculos(i).getId());
+				miMa=new MatrizBotones(miVP.getAvion(i).getMisSillasA().length,miVP.getAvion(i).getMisSillasA()[0].length, miVP, i,miVP.devolverVehiculos(i).getId(),this);
 				miMa.setVisible(true);
+				dispose();
 			}
 		}
 	}

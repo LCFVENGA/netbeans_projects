@@ -80,7 +80,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		btnReservarVuelo.addActionListener(this);
 		contentPane.add(btnReservarVuelo);
 	}
-	public Silla devolverSilla(Avion miA,int i,int j)
+	public Silla devolverSilla(int miA,int i,int j)
 	{
 		return miAero.devolverSilla(miA, i, j);
 	}
@@ -154,5 +154,15 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	public void impriPer(Pasajero misPersonas) {
 		JOptionPane.showMessageDialog(null, misPersonas);
 		
+	}
+
+	public boolean verificarDisponibilidadPuesto(int i, int j, int numeroVehiculo) {
+		// TODO Auto-generated method stub
+		return miAero.verificarDisponibilidadPuesto(i, j, numeroVehiculo);
+	}
+
+	public void reservarSillas(Pasajero miP,  int i, int j, int numeroVehiculo)  throws UsuarioInexistenteException
+	{
+		miAero.reservarSillas(miP, i, j, numeroVehiculo);
 	}
 }

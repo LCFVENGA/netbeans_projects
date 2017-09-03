@@ -10,6 +10,15 @@ public class Aerolinea implements IAerolinea
 	private int numerosA=0;
 	
 	
+	
+	public ArrayList<Reserva> getMisReservas() {
+		return misReservas;
+	}
+
+	public void setMisReservas(ArrayList<Reserva> misReservas) {
+		this.misReservas = misReservas;
+	}
+
 	public int getNumerosA() {
 		return numerosA;
 	}
@@ -32,6 +41,7 @@ public class Aerolinea implements IAerolinea
 	{
 		int a =numerosA+1;
 		misVehiculos.add(new Avion(null,""+a));
+		misReservas.add(null);
 		numerosA++;
 	}
 	
@@ -44,24 +54,18 @@ public class Aerolinea implements IAerolinea
 		return conta;
 	}
 	
-	public Silla devolverSilla(Avion miA,int i,int j)
+	public Silla devolverSilla(int miA,int i,int j)
 	{
-		return miA.devolverSilla(i, j);
+		return misVehiculos.get(miA).devolverSilla(i, j);
+	}
+	
+	public boolean verificarDisponibilidadPuesto(int i,int j, int vehi)
+	{
+		return devolverSilla(vehi, i, j).isDisponible();
 	}
 	
 	public Avion getAvion(int id)
 	{
-//		int i=-1;
-//		for (int j = 0; j < misVehiculos.size(); j++) {
-//			if(misVehiculos.get(j).getId().equals(id))
-//			{
-//				i=j;
-//			}
-//		}
-//		if (i<0) 
-//		{
-//			return null;
-//		}
 		return (Avion) misVehiculos.get(id);
 	}
 	
@@ -90,6 +94,26 @@ public class Aerolinea implements IAerolinea
 			misPersonas.add(mip);
 		}
 		
+	}
+	
+	public void reservarSillas(Pasajero miP,  int i, int j, int numeroVehiculo)  throws UsuarioInexistenteException
+	{
+		Pasajero mipp= getMisPersonas(miP);
+		if(buscarPasajero(miP)!=-1)
+		{
+			if(verificarDisponibilidadPuesto(i, j, numeroVehiculo))
+			{
+				Pasajero miPp=new Pasajero(mipp.getNombre(),mipp.getId(),mipp.getEdad(),devolverSilla(numeroVehiculo, i, j).getCodPuesto());
+				misReservas.get(numeroVehiculo).agregarPasajero(mipp);
+				misVehiculos.get(numeroVehiculo).devolverSilla(i, j).setDisponible(false);
+				Silla laSilla=devolverSilla(numeroVehiculo, i, j);
+				misReservas.get(numeroVehiculo).agergarSilla(laSilla);
+			}
+		}
+		else
+		{
+			throw new UsuarioInexistenteException("El Usuario no se a encontrado en el sistema.");
+		}
 	}
 	
 	public int buscarPasajero(Pasajero mip)
